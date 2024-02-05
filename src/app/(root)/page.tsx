@@ -1,7 +1,13 @@
+import Container from "../components/Container";
+
 export default function Home() {
   return (
-    <div>
-      hello
-    </div>
+    <section>
+      <Container>
+        <div>
+          hello
+        </div>
+      </Container>
+    </section>
   )
 }
