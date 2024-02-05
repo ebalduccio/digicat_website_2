@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import '../globals.css'
 import { cn } from '@/lib/utils'
 import Navbar from '../components/Navbar/Navbar'
+import Footer from '../components/Footer/Footer'
 
 export const metadata: Metadata = {
   title: 'Digicat',
@@ -17,11 +18,11 @@ export default function RootLayout({
     <html lang="en" className='h-full '>
       <body className={cn('relative h-full antialiased font-rhd')}>
         <main className='absolute sm:relative flex flex-col min-h-screen'>
-          <Navbar />
           <div className='flex-grow flex-1'>
+            <Navbar />
             {children}
+            <Footer />
           </div>
-          {/* <Footer /> */}
         </main>
       </body>
     </html>
