@@ -6,6 +6,11 @@
   font-family: 'RedHatDisplay';
   src: url('../../public/fonts/RedHatDisplay.ttf') format('truetype');
 }
+
+.mainbg {
+  @apply bg-no-repeat bg-cover bg-center;
+  background-image: url('/Background.svg');
+}
  
 @layer base {
   :root {
