@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -74,7 +74,10 @@ const config = {
       },
       fontFamily: {
         rhd: ['RedHatDisplay', 'sans-serif']
-      }
+      },
+      backgroundImage: {
+        'homebg': 'url(/Background.svg)',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
