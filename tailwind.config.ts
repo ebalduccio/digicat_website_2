@@ -78,6 +78,9 @@ const config = {
       backgroundImage: {
         'homebg': 'url(/Background.svg)',
       },
+      screens: {
+        xlg: '1166px'
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
