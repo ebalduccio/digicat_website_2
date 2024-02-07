@@ -8,7 +8,7 @@ const NavLinksMobile = () => {
             {NavItems.map((item, index) => {
                 return (
                     <Link key={index} href={item.href}>
-                        <div className='w-full h-12 flex ml-4 items-center rounded bg-white active:bg-black active:text-white duration-200 hover:bg-black hover:text-white'>
+                        <div className='w-full h-12 flex ml-4 items-center rounded bg-white duration-200 hover:bg-sky-400 hover:text-white'>
                             <div className='pl-2 font-roboto text-sm'>
                                 {item.label}
                             </div>
