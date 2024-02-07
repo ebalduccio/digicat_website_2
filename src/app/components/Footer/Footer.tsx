@@ -6,10 +6,10 @@ import Container from '../Container'
 
 const Footer = () => {
     return (
-        <footer className='h-[70rem] lg:h-[35rem] bg-zinc-800'>
+        <footer className='h-[70rem] lg:h-[35rem] bg-sky-400'>
             <Container>
                 <div>
-                    gello
+                    Footer
                 </div>
             </Container>
         </footer>
