@@ -11,16 +11,14 @@ export default function Home() {
       <section className="h-[62rem] lg:h-[55rem] bg-homebg bg-cover bg-center bg-no-repeat">
         <Container>
           <div className="flex flex-col gap-14 lg:flex-row items-center justify-center pt-20">
-            <div className="flex flex-col gap-10">
-              <div>
-                <h1 className="text-5xl max-w-sm">
-                  Nossas soluções são projetadas para <span className="text-sky-400">otimizar</span>,
-                  <span className="text-sky-400"> escalar</span> e <span className="text-sky-500">impulsionar</span>.
-                </h1>
-              </div>
+            <div className="flex flex-col gap-14 md:gap-16">
+              <h1 className="text-4xl max-w-sm ">
+                Nossas soluções são projetadas para <span className="text-sky-400">otimizar</span>,
+                <span className="text-sky-400"> escalar</span> e <span className="text-sky-500">impulsionar</span>.
+              </h1>
               <Link href={'/'}>
-                <div className="w-[20rem] flex items-center justify-center h-12 bg-sky-500 rounded-full">
-                  <span className="text-white font-rhd text-xl">PEÇA JÁ SEU ORÇAMENTO!</span>
+                <div className="w-[15rem] flex items-center justify-center h-8 bg-sky-500 hover:bg-sky-700 duration-300 rounded-full">
+                  <span className="text-white font-rhd font-semibold tracking-wide text-sm">PEÇA JÁ SEU ORÇAMENTO!</span>
                 </div>
               </Link>
             </div>
