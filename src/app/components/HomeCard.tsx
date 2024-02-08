@@ -1,8 +1,10 @@
+import React from 'react'
 import { cn } from '@/lib/utils';
+
 import Image from 'next/image'
+
 import Link from 'next/link';
 
-import React from 'react'
 
 type CardProps = {
     title: string;
