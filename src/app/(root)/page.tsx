@@ -3,21 +3,21 @@ import Link from "next/link";
 import Container from "../components/Container";
 
 import Image from "next/image";
-import HomeImage from '../../../public/3imageshome.png'
+import HomeImage from 'images/3imageshome.png'
 import HomeCard from "../components/HomeCard";
-import HomeDesign from '../../../public/designHome.png'
-import DesignIconHome from '../../../public/DesignIconHome.svg'
-import WebHome from '../../../public/WebHome.png'
-import WebIconHome from '../../../public/WebIconHome.svg'
-import ServerIconHome from '../../../public/ServerIconHome.svg'
-import ServerHome from '../../../public/ServerHome.png'
-import MobileHome from '../../../public/MobileHome.png'
-import AndroidIconHome from '../../../public/AndroidIconHome.svg'
-import IOSIconHome from '../../../public/IOSIconHome.svg'
-import IAIconHome from '../../../public/IAIconHome.svg'
-import IAHome from '../../../public/IAHome.png'
+import HomeDesign from 'images/designHome.png'
+import DesignIconHome from 'icons/DesignIconHome.svg'
+import WebHome from 'images/WebHome.png'
+import WebIconHome from 'icons/WebIconHome.svg'
+import ServerIconHome from 'icons/ServerIconHome.svg'
+import ServerHome from 'images/ServerHome.png'
+import MobileHome from 'images/MobileHome.png'
+import AndroidIconHome from 'icons/AndroidIconHome.svg'
+import IOSIconHome from 'icons/IOSIconHome.svg'
+import IAIconHome from 'icons/IAIconHome.svg'
+import IAHome from 'images/IAHome.png'
 
-export default function Home() {
+export default function iconse() {
   return (
     <>
       <section className="h-[62rem] lg:h-[55rem] bg-homebg bg-cover bg-center bg-no-repeat">
@@ -36,8 +36,10 @@ export default function Home() {
             </div>
             <div>
               <Image
-                src={HomeImage}
+                src={'/images/3imageshome.png'}
                 alt="3 images home"
+                width={500}
+                height={500}
               />
             </div>
           </div>
@@ -52,24 +54,28 @@ export default function Home() {
         <Container>
           <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-6 pt-20 lg:pt-32">
             <HomeCard
-              icon={DesignIconHome}
+              icon={'/icons/DesignIconHome.svg'}
               title="UI/X Design"
               content="Transformamos ideias em realidade visual com designs de alta qualidade e centrados no usuário. 
                 Nosso objetivo é criar uma experiência visual envolvente que não apenas atraia, mas também converta visitantes em clientes fiéis."
               className="h-[32rem]"
             />
             <Image
-              src={HomeDesign}
+              src={'/images/designHome.png'}
               alt="home design image"
+              width={500}
+              height={500}
             />
           </div>
           <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-6 pt-20 lg:pt-32">
             <Image
-              src={WebHome}
+              src={'/images/WebHome.png'}
               alt="home web image"
+              width={500}
+              height={500}
             />
             <HomeCard
-              icon={WebIconHome}
+              icon={'/icons/WebIconHome.svg'}
               title="Páginas Web Interativas"
               content="Transformamos ideias em realidade visual com designs de alta qualidade e centrados no usuário. 
                 Nosso objetivo é criar uma experiência visual envolvente que não apenas atraia, mas também converta visitantes em clientes fiéis."
@@ -78,7 +84,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-6 pt-20 lg:pt-32">
             <HomeCard
-              icon={ServerIconHome}
+              icon={'/icons/ServerIconHome.svg'}
               title="Sistemas Web e Desktop"
               content="Desenvolvemos sistemas robustos e escaláveis para web e desktop,
                personalizados para atender às necessidades específicas do seu negócio. Com foco em segurança e eficiência,
@@ -86,19 +92,23 @@ export default function Home() {
               className="h-[36rem]"
             />
             <Image
-              src={ServerHome}
+              src={'/images/ServerHome.png'}
               alt="home web image"
+              width={500}
+              height={500}
             />
           </div>
           <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-6 pt-20 lg:pt-32">
             <Image
-              src={MobileHome}
+              src={'/images/MobileHome.png'}
               alt="home web image"
               layout="fixed"
+              width={500}
+              height={500}
             />
             <HomeCard
-              icon={AndroidIconHome}
-              icon2={IOSIconHome}
+              icon={'/icons/AndroidIconHome.svg'}
+              icon2={'icons/IOSIconHome.svg'}
               title="Aplicativos iOS e Android"
               content="Expandimos o alcance do seu negócio com aplicativos móveis intuitivos e de alto desempenho para plataformas iOS e Android.
                Nossos aplicativos são projetados para oferecer uma experiência de usuário impecável,
@@ -108,7 +118,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-6 pt-20 lg:pt-32">
             <HomeCard
-              icon={IAIconHome}
+              icon={'/icons/IAIconHome.svg'}
               title="Sistemas Web e Desktop"
               content="Desenvolvemos sistemas robustos e escaláveis para web e desktop,
                personalizados para atender às necessidades específicas do seu negócio. Com foco em segurança e eficiência,
@@ -116,9 +126,11 @@ export default function Home() {
               className="h-[38.5rem]"
             />
             <Image
-              src={IAHome}
+              src={'/images/IAHome.png'}
               alt="home web image"
               layout="fixed"
+              width={500}
+              height={500}
             />
           </div>
         </Container>
