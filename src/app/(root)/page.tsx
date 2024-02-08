@@ -89,7 +89,7 @@ export default function iconse() {
               content="Desenvolvemos sistemas robustos e escaláveis para web e desktop,
                personalizados para atender às necessidades específicas do seu negócio. Com foco em segurança e eficiência,
                 nossas soluções são projetadas para otimizar seus processos operacionais."
-              className="h-[33rem]"
+              className="h-[36rem]"
             />
             <Image
               src={'/images/ServerHome.png'}
