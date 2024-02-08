@@ -8,7 +8,7 @@ import NavLinks from './NavLinks'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import logo from '../../../../public/Logo.svg'
+import logo from './icons/Logo.svg'
 import NavLinksMobile from './NavLinksMobile'
 import Container from '../Container'
 
@@ -25,8 +25,10 @@ function Navbar() {
                             <div className='ml-4 md:ml-2 self-stretch flex items-center'>
                                 <Link href={'/'}>
                                     <Image
-                                        src={logo}
+                                        src={'./icons/Logo.svg'}
                                         alt='header logo'
+                                        width={212}
+                                        height={43}
                                     />
                                 </Link>
                             </div>
