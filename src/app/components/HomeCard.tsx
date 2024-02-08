@@ -20,11 +20,19 @@ const HomeCard: React.FC<CardProps> = ({ title, content, icon, icon2, className 
                     <Image
                         src={icon}
                         alt="icon"
+                        width={80}
+                        height={80}
                     />
-                    <Image
-                        src={icon2}
-                        alt=""
-                    />
+                    {
+                        icon2 && (
+                            <Image
+                                src={icon2}
+                                alt=""
+                                width={80}
+                                height={80}
+                            />
+                        )
+                    }
                 </div>
                 <h1 className="text-3xl text-center font-rhd">{title}</h1>
                 <p>{content}</p>
