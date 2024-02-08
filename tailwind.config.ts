@@ -76,7 +76,7 @@ const config = {
         rhd: ['RedHatDisplay', 'sans-serif']
       },
       backgroundImage: {
-        'homebg': 'url(/Background.svg)',
+        'homebg': 'url(/icons/Background.svg)',
       },
       screens: {
         xlg: '1166px'
