@@ -1,26 +1,14 @@
 import Link from "next/link";
 
 import Container from "../components/Container";
+import HomeCard from "../components/HomeCard";
 
 import Image from "next/image";
-import HomeImage from 'images/3imageshome.png'
-import HomeCard from "../components/HomeCard";
-import HomeDesign from 'images/designHome.png'
-import DesignIconHome from 'icons/DesignIconHome.svg'
-import WebHome from 'images/WebHome.png'
-import WebIconHome from 'icons/WebIconHome.svg'
-import ServerIconHome from 'icons/ServerIconHome.svg'
-import ServerHome from 'images/ServerHome.png'
-import MobileHome from 'images/MobileHome.png'
-import AndroidIconHome from 'icons/AndroidIconHome.svg'
-import IOSIconHome from 'icons/IOSIconHome.svg'
-import IAIconHome from 'icons/IAIconHome.svg'
-import IAHome from 'images/IAHome.png'
 
-export default function iconse() {
+export default function HomePage() {
   return (
     <>
-      <section className="h-[62rem] lg:h-[55rem] bg-homebg bg-cover bg-center bg-no-repeat">
+      <section className="h-[62rem] lg:h-[44rem] bg-homebg bg-cover bg-center bg-no-repeat">
         <Container>
           <div className="flex flex-col gap-14 lg:flex-row items-center justify-center pt-20">
             <div className="flex flex-col gap-14 md:gap-16">
