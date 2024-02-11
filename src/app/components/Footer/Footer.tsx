@@ -23,7 +23,7 @@ const Footer = () => {
                                     height={43}
                                 />
                             </Link>
-                            <p className='max-w-xs text-md text-white'>Nós somos profissionais altamente qualificados com mais de duas décadas de experiência em desenvolvimento tecnológico.</p>
+                            <p className='max-w-xs text-lg text-white'>Nós somos profissionais altamente qualificados com mais de duas décadas de experiência em desenvolvimento tecnológico.</p>
                         </div>
                         <div className='flex gap-10'>
                             <div className='flex flex-col gap-5 text-white'>
@@ -72,7 +72,7 @@ const Footer = () => {
                     </div>
                 </Container>
             </footer>
-            <div className='w-full h-20 bg-homeblue flex items-center justify-center text-white text-semibold border-t-2'>
+            <div className='w-full h-16 bg-homeblue flex items-center justify-center text-white text-semibold border-t-2'>
                 <p>© DigiCat | 2018 - 2024</p>
             </div>
         </>
