@@ -84,3 +84,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* @layer components {
+  .homeblue {
+    @apply bg-homeblue
+  }
+} */
