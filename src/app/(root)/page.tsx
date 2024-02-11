@@ -4,6 +4,7 @@ import Container from "../components/Container";
 import HomeCard from "../components/HomeCard";
 
 import Image from "next/image";
+import OrcamentoButton from "../components/Buttons/OrcamentoButton";
 
 export default function HomePage() {
   return (
@@ -16,11 +17,9 @@ export default function HomePage() {
                 Nossas soluções são projetadas para <span className="text-homeblue">otimizar</span>,
                 <span className="text-homeblue"> escalar</span> e <span className="text-homeblue">impulsionar</span>.
               </h1>
-              <Link href={'/'}>
-                <button className="w-[15rem] flex items-center justify-center h-8 bg-homeblue hover:bg-sky-700 duration-300 rounded-full">
-                  <span className="text-white font-rhd font-semibold tracking-wide text-sm">PEÇA JÁ SEU ORÇAMENTO!</span>
-                </button>
-              </Link>
+              <OrcamentoButton>
+                PEÇA SEU ORÇAMENTO!
+              </OrcamentoButton>
             </div>
             <div>
               <Image
@@ -40,7 +39,7 @@ export default function HomePage() {
       </div>
       <section className="h-[420rem] xlg:h-[230rem] bg-homebg bg-cover bg-no-repeat bg-center">
         <Container>
-          <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-6 pt-20 lg:pt-32">
+          <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-5 pt-20 lg:pt-32">
             <HomeCard
               icon={'/icons/DesignIconHome.svg'}
               title="UI/X Design"
@@ -101,7 +100,7 @@ export default function HomePage() {
               content="Expandimos o alcance do seu negócio com aplicativos móveis intuitivos e de alto desempenho para plataformas iOS e Android.
                Nossos aplicativos são projetados para oferecer uma experiência de usuário impecável,
                aumentando a retenção e o engajamento do cliente."
-              className="h-[40.7rem]"
+              className="h-[36rem]"
             />
           </div>
           <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-6 pt-20 lg:pt-32">
@@ -111,7 +110,7 @@ export default function HomePage() {
               content="Desenvolvemos sistemas robustos e escaláveis para web e desktop,
                personalizados para atender às necessidades específicas do seu negócio. Com foco em segurança e eficiência,
                 nossas soluções são projetadas para otimizar seus processos operacionais."
-              className="h-[38.5rem]"
+              className="h-[37rem]"
             />
             <Image
               src={'/images/IAHome.png'}
