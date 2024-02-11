@@ -13,11 +13,11 @@ export default function HomePage() {
           <div className="flex flex-col gap-14 lg:flex-row items-center justify-center pt-20">
             <div className="flex flex-col gap-14 md:gap-16">
               <h1 className="text-4xl max-w-sm ">
-                Nossas soluções são projetadas para <span className="text-sky-400">otimizar</span>,
-                <span className="text-sky-400"> escalar</span> e <span className="text-sky-500">impulsionar</span>.
+                Nossas soluções são projetadas para <span className="text-homeblue">otimizar</span>,
+                <span className="text-homeblue"> escalar</span> e <span className="text-homeblue">impulsionar</span>.
               </h1>
               <Link href={'/'}>
-                <button className="w-[15rem] flex items-center justify-center h-8 bg-sky-500 hover:bg-sky-700 duration-300 rounded-full">
+                <button className="w-[15rem] flex items-center justify-center h-8 bg-homeblue hover:bg-sky-700 duration-300 rounded-full">
                   <span className="text-white font-rhd font-semibold tracking-wide text-sm">PEÇA JÁ SEU ORÇAMENTO!</span>
                 </button>
               </Link>
