@@ -49,7 +49,7 @@ export default function HomePage() {
               className="h-[32rem]"
             />
             <Image
-              src={'/images/designHome.png'}
+              src={'/images/designhome.png'}
               alt="home design image"
               width={500}
               height={500}
