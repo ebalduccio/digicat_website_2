@@ -38,7 +38,7 @@ const Footer = () => {
                                 <div className='flex gap-4'>
                                     <Link href={'/'}>
                                         <Image
-                                            src={'/icons/InstagramFooter.svg'}
+                                            src={'/icons/instagramFooter.svg'}
                                             alt='instagram footer'
                                             width={60}
                                             height={60}
