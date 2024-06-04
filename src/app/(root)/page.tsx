@@ -37,7 +37,7 @@ export default function HomePage() {
           Desenvolvendo sistemas que fazem mais do que <span className="text-teal-300">resolver problemas</span>; eles abrem novas <span className="text-cyan-300">oportunidades</span>.
         </h1>
       </div>
-      <section className="h-[422rem] xlg:h-[230rem] bg-homebg bg-cover bg-no-repeat bg-center">
+      <section className="h-[418rem] xlg:h-[230rem] bg-homebg bg-cover bg-no-repeat bg-center">
         <Container>
           <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-5 pt-20 lg:pt-32">
             <HomeCard
@@ -45,13 +45,14 @@ export default function HomePage() {
               title="UI/X Design"
               content="Transformamos ideias em realidade visual com designs de alta qualidade e centrados no usuário. 
                 Nosso objetivo é criar uma experiência visual envolvente que não apenas atraia, mas também converta visitantes em clientes fiéis."
-              className="h-[32rem]"
+              className="h-[32rem] order-2 xlg:order-1"
             />
             <Image
               src={'/images/designhome.png'}
               alt="home design image"
               width={500}
               height={500}
+              className="order-1 xlg:order-2"
             />
           </div>
           <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-6 pt-20 lg:pt-32">
@@ -76,13 +77,14 @@ export default function HomePage() {
               content="Desenvolvemos sistemas robustos e escaláveis para web e desktop,
                personalizados para atender às necessidades específicas do seu negócio. Com foco em segurança e eficiência,
                 nossas soluções são projetadas para otimizar seus processos operacionais."
-              className="h-[36rem]"
+              className="h-[36rem] order-2 xlg:order-1"
             />
             <Image
               src={'/images/ServerHome.png'}
               alt="home web image"
               width={500}
               height={500}
+              className="order-1 xlg:order-2"
             />
           </div>
           <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-6 pt-20 lg:pt-32">
@@ -110,7 +112,7 @@ export default function HomePage() {
               content="Desenvolvemos sistemas robustos e escaláveis para web e desktop,
                personalizados para atender às necessidades específicas do seu negócio. Com foco em segurança e eficiência,
                 nossas soluções são projetadas para otimizar seus processos operacionais."
-              className="h-[37rem]"
+              className="h-[37rem] order-2 xlg:order-1"
             />
             <Image
               src={'/images/IAHome.png'}
@@ -118,6 +120,7 @@ export default function HomePage() {
               layout="fixed"
               width={500}
               height={500}
+              className="order-1 xlg:order-2"
             />
           </div>
         </Container>
