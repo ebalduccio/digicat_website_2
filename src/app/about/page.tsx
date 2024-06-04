@@ -18,7 +18,7 @@ export default function About() {
                             </h3>
                         </div>
                         <Image
-                            src={'/images/Aboutimage1.png'}
+                            src={'/images/AboutImage1.png'}
                             alt="about image"
                             width={477}
                             height={477}
