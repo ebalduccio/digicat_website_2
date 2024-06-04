@@ -95,11 +95,6 @@ export default function About() {
                     </div>
                 </Container>
             </section>
-            <section>
-                <Container>
-                    Nosso time
-                </Container>
-            </section>
         </>
     )
 }
