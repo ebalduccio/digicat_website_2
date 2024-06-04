@@ -7,6 +7,11 @@
   src: url('../../public/fonts/RedHatDisplay.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'StoreClerkSolidJNL';
+  src: url('../../public/fonts/StoreClerkSolidJNL.ttf') format('truetype');
+}
+
 .mainbg {
   @apply bg-no-repeat bg-cover bg-center;
   background-image: url('/Background.svg');

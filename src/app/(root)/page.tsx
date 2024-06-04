@@ -37,7 +37,7 @@ export default function HomePage() {
           Desenvolvendo sistemas que fazem mais do que <span className="text-teal-300">resolver problemas</span>; eles abrem novas <span className="text-cyan-300">oportunidades</span>.
         </h1>
       </div>
-      <section className="h-[420rem] xlg:h-[230rem] bg-homebg bg-cover bg-no-repeat bg-center">
+      <section className="h-[422rem] xlg:h-[230rem] bg-homebg bg-cover bg-no-repeat bg-center">
         <Container>
           <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-5 pt-20 lg:pt-32">
             <HomeCard

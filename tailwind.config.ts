@@ -74,7 +74,8 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        rhd: ['RedHatDisplay', 'sans-serif']
+        rhd: ['RedHatDisplay', 'sans-serif'],
+        digicat: ['StoreClerkSolidJNL', 'sans-serif']
       },
       backgroundImage: {
         'homebg': 'url(/icons/Background.svg)',
