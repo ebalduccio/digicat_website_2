@@ -23,7 +23,7 @@ export default function HomePage() {
             </div>
             <div>
               <Image
-                src={'/images/3imageshome.png'}
+                src={'/images/Handcoding-bro.png'}
                 alt="3 images home"
                 width={500}
                 height={500}
