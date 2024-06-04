@@ -14,7 +14,7 @@ export default function About() {
                             </h1>
                             <h3 className="text-xl font-semibold">
                                 Digicat nasceu da paixão pela <span className="text-homeblue">tecnologia</span> e da determinação em criar <span className="text-homeblue">soluções inovadoras</span> no universo da programação. Fundada em 2018, por Edgardo Balduccio,
-                                começamos como uma pequena startup com grandes sonhos: <span className="text-homeblue">simplificar</span> a tecnologia para empresas e indivíduos, transformando <span className="text-homeblue">ideias</span> em realidade <span className="text-homeblue">acessivél</span>.
+                                começamos como uma pequena startup com grandes sonhos: <span className="text-homeblue">simplificar</span> a tecnologia para empresas e indivíduos, transformando <span className="text-homeblue">ideias</span> em realidade <span className="text-homeblue">acessível</span>.
                             </h3>
                         </div>
                         <Image
@@ -29,7 +29,7 @@ export default function About() {
             <div className="w-full flex items-center justify-center h-[10rem] bg-sky-500">
                 <h1 className="text-center text-white text-2xl">
                     Na <span className="font-digicat text-teal-300">DIGICAT</span>, acreditamos que um design <span className="text-teal-300">eficiente</span> e <span className="text-teal-300">envolvente</span>
-                    é crucial para o <span className="text-teal-300">sucesso</span> de qualquer projeto digital.
+                     é crucial para o <span className="text-teal-300">sucesso</span> de qualquer projeto digital.
                 </h1>
             </div>
             <section className="h-[145rem] lg:h-[100rem] bg-homebg bg-cover bg-no-repeat bg-center">
