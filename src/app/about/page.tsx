@@ -28,8 +28,7 @@ export default function About() {
             </section>
             <div className="w-full flex items-center justify-center h-[10rem] bg-sky-500">
                 <h1 className="text-center text-white text-2xl">
-                    Na <span className="font-digicat text-teal-300">DIGICAT</span>, acreditamos que um design <span className="text-teal-300">eficiente</span> e <span className="text-teal-300">envolvente</span>
-                     é crucial para o <span className="text-teal-300">sucesso</span> de qualquer projeto digital.
+                    Na <span className="font-digicat text-teal-300">DIGICAT</span>, acreditamos que um design <span className="text-teal-300">eficiente</span> e <span className="text-teal-300">envolvente</span> é crucial para o <span className="text-teal-300">sucesso</span> de qualquer projeto digital.
                 </h1>
             </div>
             <section className="h-[145rem] lg:h-[100rem] bg-homebg bg-cover bg-no-repeat bg-center">
