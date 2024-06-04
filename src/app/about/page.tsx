@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Container from "../components/Container";
-import OrcamentoButton from "../components/Buttons/OrcamentoButton";
 import Card from "./components/Card";
 
 export default function About() {
