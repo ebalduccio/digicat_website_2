@@ -108,10 +108,10 @@ export default function HomePage() {
           <div className="flex flex-col xlg:flex-row items-center justify-center gap-40 pl-6 pt-20 lg:pt-32">
             <HomeCard
               icon={'/icons/IAIconHome.svg'}
-              title="Sistemas Web e Desktop"
-              content="Desenvolvemos sistemas robustos e escaláveis para web e desktop,
-               personalizados para atender às necessidades específicas do seu negócio. Com foco em segurança e eficiência,
-                nossas soluções são projetadas para otimizar seus processos operacionais."
+              title="Inteligência Artificial (IA)"
+              content="Expandimos o alcance do seu negócio com aplicativos móveis intuitivos e de alto desempenho para plataformas iOS e Android.
+               Nossos aplicativos são projetados para oferecer uma experiência de usuário impecável,
+               aumentando a retenção e o engajamento do cliente."
               className="h-[37rem] order-2 xlg:order-1"
             />
             <Image
