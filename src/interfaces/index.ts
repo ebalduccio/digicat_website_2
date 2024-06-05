@@ -1,4 +1,4 @@
-interface AboutProps {
+interface CardAboutProps {
     title: string,
     content: string
 }
