@@ -7,7 +7,7 @@ import Card from "./components/Card";
 export default function Servicos() {
     return (
         <>
-            <section className="h-[62rem] lg:h-[44rem] bg-homebg bg-cover bg-center bg-no-repeat">
+            <section className="h-[55rem] lg:h-[44rem] bg-homebg bg-cover bg-center bg-no-repeat">
                 <Container>
                     <h1 className="text-6xl text-center pt-16">
                         Serviços
