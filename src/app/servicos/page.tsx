@@ -12,7 +12,7 @@ export default function Servicos() {
                     <h1 className="text-6xl text-center pt-16">
                         Serviços
                     </h1>
-                    <div className="flex flex-col lg:flex-row gap-14 lg:gap-20 items-center justify-center">
+                    <div className="flex flex-col lg:flex-row lg:gap-20 items-center justify-center">
                         <Image
                             src={'/images/ServiceImage1.png'}
                             alt="service image 1"
