@@ -40,7 +40,7 @@ export default function Servicos() {
                 <Container>
                     <div className="flex flex-col lg:flex-row items-center pt-20 gap-20 justify-center">
                         <Card>
-                            <h1 className="max-w-md font-semibold">
+                            <h1 className="max-w-xs lg:max-w-md font-semibold">
                                 Transformamos <BlueText content="ideias" /> em <BlueText content="experiências visuais" /> impressionantes.
                                  Nossa equipe de design de UI/UX se dedica a criar interfaces <BlueText content="intuitivas" /> e <BlueText content="agradáveis" />,
                                 focadas na jornada do usuário. Desde o <BlueText content="wireframe" /> até o protótipo final,
