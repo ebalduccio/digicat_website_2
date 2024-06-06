@@ -6,9 +6,9 @@ import Container from '../Container'
 import Image from 'next/image'
 import FooterLinks from './FooterLinks'
 import Link from 'next/link'
-import { Copyright } from 'lucide-react'
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
     return (
         <>
             <footer className='h-[60rem] lg:h-[35rem] bg-homeblue border-b-gray-500'>
@@ -73,7 +73,7 @@ const Footer = () => {
                 </Container>
             </footer>
             <div className='w-full h-16 bg-homeblue flex items-center justify-center text-white text-semibold border-t-2'>
-                <p><span className='font-bold'>©</span> <span className='font-digicat'>DIGICAT</span> | 2018 - 2024</p>
+                <p><span className='font-bold'>©</span> <span className='font-digicat'>DIGICAT</span> | 2018 - {currentYear}</p>
             </div>
         </>
     )
