@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Palette, Globe, Layout, Smartphone, Brain } from "lucide-react";
+import Link from 'next/link';
 
 interface ServiceCardProps {
   Icon: React.ElementType;
@@ -83,9 +84,11 @@ export default function ServicosPage() {
               <p className="text-xl mb-8">
                 Estamos prontos para enfrentar qualquer desafio e entregar resultados que superam suas expectativas. Vamos criar algo incrível juntos!
               </p>
-              <Button size="lg" className="bg-white text-sky-900 hover:bg-sky-100">
-                Solicite um orçamento
-              </Button>
+              <Link href={'/contact'}>
+                <Button size="lg" className="bg-white text-sky-900 hover:bg-sky-100">
+                  Solicite um orçamento
+                </Button>
+              </Link>
             </div>
             <div className="lg:w-1/2 relative">
               <div className="absolute inset-0 bg-gradient-to-r from-sky-400 to-teal-300 rounded-full blur-3xl opacity-50 animate-pulse"></div>

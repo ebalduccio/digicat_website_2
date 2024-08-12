@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import Link from 'next/link';
 
 interface ProjectCardProps {
     title: string;
@@ -109,9 +110,11 @@ export default function PortfolioPage() {
                         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                             Nosso time de especialistas está pronto para ajudar a levar seu projeto ao próximo nível. Vamos criar algo incrível juntos!
                         </p>
-                        <Button size="lg" className="bg-sky-500 hover:bg-sky-600 text-white">
-                            Solicite um Orçamento
-                        </Button>
+                        <Link href={'/contact'}>
+                            <Button size="lg" className="bg-sky-500 hover:bg-sky-600 text-white">
+                                Solicite um Orçamento
+                            </Button>
+                        </Link>
                     </div>
                 </Container>
             </section>

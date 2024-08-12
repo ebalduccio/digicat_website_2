@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 interface ServiceCardProps {
   icon: string;
@@ -80,9 +81,11 @@ export default function HomePage() {
               <p className="text-xl text-gray-700">
                 Transforme sua visão em realidade com nossas soluções tecnológicas de ponta.
               </p>
-              <Button size="lg" className="bg-sky-500 hover:bg-sky-600 text-white">
-                PEÇA SEU ORÇAMENTO!
-              </Button>
+              <Link href={'/contact'}>
+                <Button size="lg" className="bg-sky-500 hover:bg-sky-600 text-white">
+                  PEÇA SEU ORÇAMENTO!
+                </Button>
+              </Link>
             </div>
             <div className="flex-1 relative">
               <div className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-700 rounded-full blur-3xl opacity-30 animate-pulse"></div>
