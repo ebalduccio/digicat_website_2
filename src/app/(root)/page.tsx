@@ -116,7 +116,9 @@ export default function HomePage() {
           {services.map((service, index) => (
             <div key={service.title} className={`flex flex-col lg:flex-row items-center justify-between gap-12 mb-20 ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
               <div className="flex-1 space-y-6 transform hover:scale-105 transition-transform duration-300">
-                <ServiceCard icon={service.icon} title={service.title} content={service.content} />
+                <Link href={'/services'}>
+                  <ServiceCard icon={service.icon} title={service.title} content={service.content} />
+                </Link>
               </div>
               <div className="flex-1 relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-sky-300 to-teal-300 rounded-full blur-3xl opacity-30 animate-pulse"></div>
