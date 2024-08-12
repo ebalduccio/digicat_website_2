@@ -81,11 +81,13 @@ export default function HomePage() {
               <p className="text-xl text-gray-700">
                 Transforme sua visão em realidade com nossas soluções tecnológicas de ponta.
               </p>
-              <Link href={'/contact'}>
-                <Button size="lg" className="bg-sky-500 hover:bg-sky-600 text-white">
-                  PEÇA SEU ORÇAMENTO!
-                </Button>
-              </Link>
+              <div>
+                <Link href={'/contact'}>
+                  <Button size="lg" className="bg-sky-500 hover:bg-sky-600 text-white">
+                    PEÇA SEU ORÇAMENTO!
+                  </Button>
+                </Link>
+              </div>
             </div>
             <div className="flex-1 relative">
               <div className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-700 rounded-full blur-3xl opacity-30 animate-pulse"></div>
