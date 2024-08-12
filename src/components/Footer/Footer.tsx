@@ -40,7 +40,7 @@ const Footer = () => {
                         <h3 className="text-lg font-semibold mb-4 text-sky-300">Contato</h3>
                         <p className="text-gray-300 mb-4">Fale Conosco!</p>
                         <div className="flex space-x-4">
-                            {['instagram', 'wpp', 'facebook'].map((social) => (
+                            {['instagram', 'Wpp', 'Facebook'].map((social) => (
                                 <Link key={social} href={'/'} className="transition-transform hover:scale-110">
                                     <Image
                                         src={`/icons/${social}Footer.svg`}
