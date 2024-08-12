@@ -1,23 +1,35 @@
 import { NavItems } from '@/constants';
 import Link from 'next/link';
-import React from 'react'
+import React from 'react';
+import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 const NavLinksMobile = () => {
-    return (
-        <>
-            {NavItems.map((item, index) => {
-                return (
-                    <Link key={index} href={item.href}>
-                        <div className='w-full h-12 flex ml-4 items-center rounded bg-white duration-200 hover:bg-sky-400 hover:text-white'>
-                            <div className='pl-2 font-roboto text-sm'>
-                                {item.label}
-                            </div>
-                        </div>
-                    </Link>
-                );
-            })}
-        </>
-    )
-}
+  const pathname = usePathname();
 
-export default NavLinksMobile
+  return (
+    <div className="space-y-2">
+      {NavItems.map((item, index) => {
+        const isActive = pathname === item.href;
+        return (
+          <Link key={index} href={item.href}>
+            <motion.div 
+              className={`
+                w-full py-3 px-4 rounded-md transition duration-300 ease-in-out
+                ${isActive 
+                  ? 'bg-sky-50 text-sky-600' 
+                  : 'text-gray-700 hover:bg-gray-100'
+                }
+              `}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="font-medium text-base">{item.label}</span>
+            </motion.div>
+          </Link>
+        );
+      })}
+    </div>
+  );
+};
+
+export default NavLinksMobile;
