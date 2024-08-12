@@ -106,7 +106,7 @@ export default function HomePage() {
       <section className="py-16 bg-sky-900 text-white">
         <Container>
           <h2 className="text-3xl font-bold text-center leading-tight">
-            Desenvolvendo sistemas que fazem mais do que <span className="text-teal-300">resolver problemas</span>; <br />eles abrem novas <span className="text-cyan-300">oportunidades</span>.
+            Desenvolvendo sistemas que fazem mais do que <span className="text-cyan-300">resolver problemas</span>; <br />eles abrem novas <span className="text-cyan-300">oportunidades</span>.
           </h2>
         </Container>
       </section>
