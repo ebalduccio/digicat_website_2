@@ -13,7 +13,7 @@ const ContactInfo: React.FC<{ icon: React.ReactNode; text: string }> = ({ icon, 
     </div>
 );
 
-const WhatsAppButton: React.FC<{ name: string; number: string }> = ({ name, number }) => {
+const WhatsAppButton: React.FC<{ number: string }> = ({ number }) => {
     const handleClick = () => {
         const whatsappLink = `https://wa.me/${number.replace(/\D/g, '')}`;
         window.open(whatsappLink, '_blank');
@@ -25,7 +25,7 @@ const WhatsAppButton: React.FC<{ name: string; number: string }> = ({ name, numb
             onClick={handleClick}
         >
             <MessageCircle size={20} />
-            <span>Falar com {name} no WhatsApp</span>
+            <span>Falar conosco no WhatsApp</span>
         </Button>
     );
 };
@@ -49,7 +49,7 @@ export default function ContatoPage() {
                                 <p className="text-gray-600">
                                     Inicie uma conversa no WhatsApp com nosso representante. Estamos prontos para atender você!
                                 </p>
-                                <WhatsAppButton name="Edgardo" number="+55 71 99226-6505" />
+                                <WhatsAppButton number="+55 71 99226-6505" />
                             </CardContent>
                         </Card>
 
@@ -88,7 +88,7 @@ export default function ContatoPage() {
                         <p className="text-xl mb-8 max-w-2xl mx-auto">
                             Não importa o tamanho do seu projeto, estamos aqui para ajudar. Vamos criar algo incrível juntos!
                         </p>
-                        <WhatsAppButton name="Edgardo" number="+55 71 99226-6505" />
+                        <WhatsAppButton number="+55 71 99226-6505" />
                     </div>
                 </Container>
             </section>
