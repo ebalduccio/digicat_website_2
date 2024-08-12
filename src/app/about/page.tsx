@@ -1,100 +1,105 @@
+import React from 'react';
 import Image from "next/image";
-import Container from "../components/Container";
-import Card from "./components/Card";
+import { Card, CardContent } from "@/components/ui/card";
+import { Container } from "@/components/ui/container";
+
+const ValueCard = ({ title, content, icon }: { title: string; content: string; icon: string }) => (
+  <Card className="bg-white/80 backdrop-blur-md border-none shadow-lg hover:shadow-xl transition-all duration-300">
+    <CardContent className="p-6 flex flex-col items-center text-center">
+      <div className="text-4xl mb-4 text-sky-500">{icon}</div>
+      <h3 className="text-xl font-bold mb-2 text-sky-900">{title}</h3>
+      <p className="text-gray-600">{content}</p>
+    </CardContent>
+  </Card>
+);
 
 export default function About() {
-    return (
-        <>
-            <section className="h-[62rem] lg:h-[44rem] bg-homebg bg-cover bg-center bg-no-repeat">
-                <Container>
-                    <div className="flex flex-col lg:flex-row gap-14 items-center pt-10 lg:pt-20 justify-center">
-                        <div className="flex flex-col pt-[5rem] gap-12 lg:gap-16 text-center">
-                            <h1 className="text-6xl">
-                                Quem somos?
-                            </h1>
-                            <h3 className="text-xl font-semibold">
-                                Digicat nasceu da paixão pela <span className="text-homeblue">tecnologia</span> e da determinação em criar <span className="text-homeblue">soluções inovadoras</span> no universo da programação. Fundada em 2018, por Edgardo Balduccio,
-                                começamos como uma pequena startup com grandes sonhos: <span className="text-homeblue">simplificar</span> a tecnologia para empresas e indivíduos, transformando <span className="text-homeblue">ideias</span> em realidade <span className="text-homeblue">acessível</span>.
-                            </h3>
-                        </div>
-                        <Image
-                            src={'/images/AboutImage1.png'}
-                            alt="about image"
-                            width={477}
-                            height={477}
-                        />
-                    </div>
-                </Container>
-            </section>
-            <div className="w-full flex items-center justify-center rounded-md h-[10rem] bg-sky-500">
-                <h1 className="text-center text-white text-2xl">
-                    Na <span className="font-digicat text-teal-300">DIGICAT</span>, acreditamos que um design <span className="text-teal-300">eficiente</span> e <span className="text-teal-300">envolvente</span> é crucial para o <span className="text-teal-300">sucesso</span> de qualquer projeto digital.
-                </h1>
+  return (
+    <div className="bg-gradient-to-b from-sky-100 via-white to-sky-50">
+      <section className="py-20 overflow-hidden">
+        <Container>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="flex-1 space-y-6 text-center lg:text-left">
+              <h1 className="text-5xl font-bold text-sky-900 leading-tight">
+                Transformando ideias em <span className="text-sky-500">realidade digital</span>
+              </h1>
+              <p className="text-xl text-gray-700 leading-relaxed">
+                Digicat nasceu da paixão pela <span className="text-sky-600 font-semibold">tecnologia</span> e da determinação em criar <span className="text-sky-600 font-semibold">soluções inovadoras</span>. Desde 2018, simplificamos a tecnologia, tornando ideias acessíveis para empresas e indivíduos.
+              </p>
             </div>
-            <section className="h-[145rem] lg:h-[100rem] bg-homebg bg-cover bg-no-repeat bg-center">
-                <Container>
-                    <div className="flex flex-col relative items-center gap-24">
-                        <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 pt-24 items-center justify-center ">
-                            <Card
-                                title="Inovação"
-                                content="Buscamos constantemente novas ideias e abordagens."
-                            />
-                            <Card
-                                title="Integridade"
-                                content="Agimos com honestidade e transparência."
-                            />
-                        </div>
-                        <div className="absolute hidden lg:block pt-[26rem] pr-[35rem]">
-                            <Image
-                                src={'/icons/Curve1.svg'}
-                                alt="curve 1"
-                                width={156}
-                                height={156}
-                            />
-                        </div>
-                        <div className="absolute hidden lg:block pt-[26rem] pl-[35rem]">
-                            <Image
-                                src={'/icons/Curve2.svg'}
-                                alt="curve 2"
-                                width={156}
-                                height={156}
-                            />
-                        </div>
-                        <Image
-                            src={'/images/AboutImage2.png'}
-                            alt="about image 2"
-                            width={562}
-                            height={581}
-                        />
-                        <div className="absolute hidden lg:block pt-[60rem] pr-[35rem]">
-                            <Image
-                                src={'/icons/Curve3.svg'}
-                                alt="curve 3"
-                                width={156}
-                                height={156}
-                            />
-                        </div>
-                        <div className="absolute hidden lg:block pt-[60rem] pl-[35rem]">
-                            <Image
-                                src={'/icons/Curve4.svg'}
-                                alt="curve 4"
-                                width={156}
-                                height={156}
-                            />
-                        </div>
-                        <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-center justify-center ">
-                            <Card
-                                title="Qualidade"
-                                content="Comprometemo-nos com a excelência em cada projeto."
-                            />
-                            <Card
-                                title="Colaboração"
-                                content="Acreditamos no poder da equipe."
-                            />
-                        </div>
-                    </div>
-                </Container>
-            </section>
-        </>
-    )
+            <div className="flex-1 relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-700 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+              <Image
+                src="/images/AboutImage1.png"
+                alt="Equipe Digicat"
+                width={500}
+                height={500}
+                className="relative z-10 drop-shadow-2xl"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 bg-sky-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/circuit-pattern.svg')] opacity-10"></div>
+        <Container className="relative z-10">
+          <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
+            Na <span className="font-digicat text-teal-300">DIGICAT</span>, acreditamos que um design <span className="text-teal-300">eficiente</span> e <span className="text-teal-300">envolvente</span> é crucial para o <span className="text-teal-300">sucesso</span> de qualquer projeto digital.
+          </h2>
+        </Container>
+      </section>
+
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-100 to-blue-100 opacity-50 transform -skew-y-6"></div>
+        <Container className="relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <ValueCard
+              icon="💡"
+              title="Inovação"
+              content="Buscamos constantemente novas ideias e abordagens."
+            />
+            <ValueCard
+              icon="🤝"
+              title="Integridade"
+              content="Agimos com honestidade e transparência."
+            />
+            <ValueCard
+              icon="🏆"
+              title="Qualidade"
+              content="Comprometemo-nos com a excelência em cada projeto."
+            />
+            <ValueCard
+              icon="🚀"
+              title="Colaboração"
+              content="Acreditamos no poder da equipe."
+            />
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20 bg-gradient-to-r from-sky-50 to-blue-50 relative overflow-hidden">
+        <Container>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="flex-1 relative order-2 lg:order-1">
+              <div className="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-700 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+              <Image
+                src="/images/AboutImage2.png"
+                alt="Nossa Equipe"
+                width={600}
+                height={600}
+                className="relative z-10 drop-shadow-2xl"
+              />
+            </div>
+            <div className="flex-1 space-y-6 order-1 lg:order-2">
+              <h2 className="text-4xl font-bold text-sky-900 leading-tight">Nossa Equipe: <span className="text-sky-500">O Coração da Inovação</span></h2>
+              <p className="text-xl text-gray-700 leading-relaxed">
+                Na Digicat, nossa equipe é o motor da inovação. Composta por profissionais apaixonados e altamente qualificados, estamos sempre prontos para enfrentar novos desafios e criar soluções que impulsionam o sucesso dos nossos clientes.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </div>
+  );
 }

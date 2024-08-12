@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: 'RedHatDisplay';
-  src: url('../../../public/fonts/RedHatDisplay.ttf') format('truetype');
+  src: url('/fonts/RedHatDisplay.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'StoreClerkSolidJNL';
-  src: url('../../../public/fonts/StoreClerkSolidJNL.ttf') format('truetype');
+  src: url('/fonts/StoreClerkSolidJNL.ttf') format('truetype');
 }
 
 .mainbg {

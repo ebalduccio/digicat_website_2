@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import './styles/globals.css';
+import '@/styles/globals.css';
 import { cn } from '@/lib/utils';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
-import { NavbarProvider } from './context/NavContext';
+import Navbar from '@/components/Navbar/Navbar';
+import Footer from '@/components/Footer/Footer';
+import { NavbarProvider } from '@/context/NavContext';
 
 export const metadata: Metadata = {
   title: 'Digicat',

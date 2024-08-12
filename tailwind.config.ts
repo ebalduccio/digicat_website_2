@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-  ],
+	],
   prefix: "",
   theme: {
     container: {
@@ -19,7 +19,6 @@ const config = {
     },
     extend: {
       colors: {
-        'homeblue': '#0194eb',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -73,16 +72,6 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      fontFamily: {
-        rhd: ['RedHatDisplay', 'sans-serif'],
-        digicat: ['StoreClerkSolidJNL', 'sans-serif']
-      },
-      backgroundImage: {
-        'homebg': 'url(/icons/Background.svg)',
-      },
-      screens: {
-        xlg: '1166px'
-      }
     },
   },
   plugins: [require("tailwindcss-animate")],
