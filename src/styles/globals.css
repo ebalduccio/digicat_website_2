@@ -16,6 +16,23 @@
   @apply bg-no-repeat bg-cover bg-center;
   background-image: url('/Background.svg');
 }
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thumb-sky-500::-webkit-scrollbar-thumb {
+    background-color: theme('colors.sky.500');
+    border-radius: 9999px;
+  }
+  .scrollbar-track-sky-100::-webkit-scrollbar-track {
+    background-color: theme('colors.sky.100');
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+}
  
 @layer base {
   :root {
@@ -89,9 +106,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-/* @layer components {
-  .homeblue {
-    @apply bg-homeblue
-  }
-} */
