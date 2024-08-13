@@ -46,7 +46,6 @@ const projectThemes = {
   'dendicasa': { primary: 'orange', secondary: 'amber' },
   'sistema-identidade-panama': { primary: 'red', secondary: 'rose' },
   'sistema-identidade-paraguai': { primary: 'purple', secondary: 'violet' },
-  // Adicione mais temas de projetos conforme necessário
 };
 
 const getThemeClass = (baseClass: string, projectId: string | null, fallback: string) => {
