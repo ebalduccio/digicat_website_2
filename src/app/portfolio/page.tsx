@@ -1,23 +1,18 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react';
-import Image from "next/image";
+import React from 'react';
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from 'next/link';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const AnimatedSection = ({ children, className }: { children: React.ReactNode; className?: string }) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, amount: 0.3 });
-
     return (
         <motion.div
-            ref={ref}
             initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             className={className}
         >
@@ -43,7 +38,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, technologies,
         >
             <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-6 flex flex-col flex-grow">
-                    <CardTitle className="text-2xl font-bold mb-3 text-sky-900">{title}</CardTitle>
+                    <Link href={`/projetos?id=${slug}`} passHref>
+                        <CardTitle className="text-2xl font-bold mb-3 text-sky-900 hover:text-sky-700 transition-colors duration-300">{title}</CardTitle>
+                    </Link>
                     <p className="text-gray-700 mb-4 flex-grow">{summary}</p>
                     <div className="mb-4">
                         <p className="font-semibold mb-2 text-sky-800">Principais tecnologias:</p>
@@ -60,7 +57,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, technologies,
                             )}
                         </div>
                     </div>
-                    <Link href={`/projetos/${slug}`} passHref>
+                    <Link href={`/projetos?id=${slug}`} passHref>
                         <Button variant="link" className="text-sky-600 hover:text-sky-700 p-0 mt-2 self-start">
                             Ver detalhes <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform duration-300" />
                         </Button>
