@@ -118,19 +118,6 @@ export default function DendicasaPage() {
                         </ul>
                     </div>
 
-                    <div>
-                        <h2 className="text-2xl font-semibold text-orange-800 mb-4">Interessado em uma solução similar?</h2>
-                        <p className="text-gray-700 mb-6">
-                            Se você está considerando desenvolver um aplicativo de entrega ou uma plataforma 
-                            similar, adoraríamos discutir como podemos adaptar nossa experiência às suas 
-                            necessidades específicas.
-                        </p>
-                        <Link href="/contact">
-                            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
-                                Solicitar uma Demonstração
-                            </Button>
-                        </Link>
-                    </div>
                 </motion.div>
             </Container>
         </div>

@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-    <motion.div 
+    <motion.div
         className="bg-white p-6 rounded-lg shadow-md"
         whileHover={{ y: -5, boxShadow: '0 10px 30px -15px rgba(0, 0, 0, 0.2)' }}
     >
@@ -33,12 +33,12 @@ export default function ASTRAMPage() {
                         <ArrowLeft size={20} className="mr-2" />
                         Voltar para o portfólio
                     </Link>
-                    
+
                     <div className="flex flex-col md:flex-row items-center mb-12">
                         <div className="md:w-2/3 md:pr-8">
                             <h1 className="text-5xl font-bold text-blue-900 mb-6">ASTRAM</h1>
                             <p className="text-xl text-gray-700 mb-8">
-                                Aplicativo sindical inovador que oferece gestão de associados, carteira virtual, 
+                                Aplicativo sindical inovador que oferece gestão de associados, carteira virtual,
                                 sistema de enquetes e notícias, tudo em uma plataforma móvel intuitiva e eficiente.
                             </p>
                         </div>
@@ -103,19 +103,6 @@ export default function ASTRAMPage() {
                         </ul>
                     </div>
 
-                    <div>
-                        <h2 className="text-2xl font-semibold text-blue-800 mb-4">Interessado em uma solução similar?</h2>
-                        <p className="text-gray-700 mb-6">
-                            Se você representa um sindicato ou organização que poderia se beneficiar de um aplicativo 
-                            personalizado como o ASTRAM, ficaríamos felizes em discutir como podemos adaptar esta 
-                            solução às suas necessidades específicas.
-                        </p>
-                        <Link href="/contact">
-                            <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white">
-                                Solicitar uma Consulta
-                            </Button>
-                        </Link>
-                    </div>
                 </motion.div>
             </Container>
         </div>

@@ -129,19 +129,6 @@ export default function ParaguayIdentitySystemPage() {
                         </ul>
                     </div>
 
-                    <div>
-                        <h2 className="text-2xl font-semibold text-blue-800 mb-4">Interessado em Sistemas de Identificação de Classe Mundial?</h2>
-                        <p className="text-gray-700 mb-6">
-                            Se você representa um governo ou organização que busca implementar um sistema de identificação 
-                            de última geração, gostaríamos de compartilhar nossa experiência e discutir como podemos 
-                            adaptar nossa solução às necessidades específicas do seu país ou organização.
-                        </p>
-                        <Link href="/contact">
-                            <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white">
-                                Solicitar uma Consultoria Especializada
-                            </Button>
-                        </Link>
-                    </div>
                 </motion.div>
             </Container>
         </div>

@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-    <motion.div 
+    <motion.div
         className="bg-white p-6 rounded-lg shadow-md"
         whileHover={{ y: -5, boxShadow: '0 10px 30px -15px rgba(0, 0, 0, 0.2)' }}
     >
@@ -32,12 +32,12 @@ export default function PanamaIdentitySystemPage() {
                         <ArrowLeft size={20} className="mr-2" />
                         Voltar para o portfólio
                     </Link>
-                    
+
                     <h1 className="text-5xl font-bold text-red-900 mb-6">Sistema de Identidade - Panamá</h1>
                     <p className="text-xl text-gray-700 mb-8 max-w-3xl">
-                        Um sistema de emissão de carteira de identidade e passaporte de última geração, 
-                        desenvolvido especificamente para o governo do Panamá. Este sistema integra 
-                        tecnologia biométrica avançada para garantir a segurança e a integridade da 
+                        Um sistema de emissão de carteira de identidade e passaporte de última geração,
+                        desenvolvido especificamente para o governo do Panamá. Este sistema integra
+                        tecnologia biométrica avançada para garantir a segurança e a integridade da
                         identificação nacional.
                     </p>
 
@@ -119,19 +119,6 @@ export default function PanamaIdentitySystemPage() {
                         </ul>
                     </div>
 
-                    <div>
-                        <h2 className="text-2xl font-semibold text-red-800 mb-4">Interessado em Sistemas de Identificação Governamental?</h2>
-                        <p className="text-gray-700 mb-6">
-                            Se você representa um governo ou organização que necessita de um sistema de identificação 
-                            robusto e seguro, gostaríamos de compartilhar nossa experiência e discutir como podemos 
-                            adaptar nossa solução às suas necessidades específicas.
-                        </p>
-                        <Link href="/contact">
-                            <Button size="lg" className="bg-red-500 hover:bg-red-600 text-white">
-                                Agendar uma Consultoria
-                            </Button>
-                        </Link>
-                    </div>
                 </motion.div>
             </Container>
         </div>
