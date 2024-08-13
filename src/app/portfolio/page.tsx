@@ -28,169 +28,79 @@ const AnimatedSection = ({ children, className }: { children: React.ReactNode; c
 
 interface ProjectCardProps {
     title: string;
-    description: string;
-    details: string[];
+    summary: string;
     technologies: string[];
-    duration?: string;
-    client?: string;
+    slug: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, details, technologies, duration, client }) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, amount: 0.3 });
-    const techRef = useRef<HTMLDivElement>(null);
-    const [showLeftArrow, setShowLeftArrow] = useState(false);
-    const [showRightArrow, setShowRightArrow] = useState(false);
-
-    useEffect(() => {
-        const checkScroll = () => {
-            if (techRef.current) {
-                const { scrollLeft, scrollWidth, clientWidth } = techRef.current;
-                setShowLeftArrow(scrollLeft > 0);
-                setShowRightArrow(scrollLeft < scrollWidth - clientWidth);
-            }
-        };
-
-        checkScroll();
-        window.addEventListener('resize', checkScroll);
-        return () => window.removeEventListener('resize', checkScroll);
-    }, []);
-
-    const scroll = (direction: 'left' | 'right') => {
-        if (techRef.current) {
-            const scrollAmount = 100;
-            techRef.current.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
-                behavior: 'smooth'
-            });
-            setTimeout(() => {
-                const { scrollLeft, scrollWidth, clientWidth } = techRef.current!;
-                setShowLeftArrow(scrollLeft > 0);
-                setShowRightArrow(scrollLeft < scrollWidth - clientWidth);
-            }, 300);
-        }
-    };
-
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, technologies, slug }) => {
     return (
         <motion.div
-            ref={ref}
             initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="h-full"
         >
             <Card className="flex flex-col h-full shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-6 flex flex-col flex-grow">
-                    <CardTitle className="text-2xl font-bold mb-2 text-sky-900">{title}</CardTitle>
-                    {client && <p className="text-sm text-gray-500 mb-2">Cliente: {client}</p>}
-                    {duration && <p className="text-sm text-gray-500 mb-4">Duração: {duration}</p>}
-                    <p className="text-gray-700 mb-4">{description}</p>
-                    <ul className="list-disc list-inside mb-4 text-gray-600">
-                        {details.map((detail, index) => (
-                            <li key={index}>{detail}</li>
-                        ))}
-                    </ul>
-                    <div className="relative mb-4 mt-auto">
-                        <p className="font-semibold mb-2 text-sky-800">Tecnologias:</p>
-                        <div
-                            ref={techRef}
-                            className="flex space-x-2 overflow-x-hidden"
-                            style={{ scrollBehavior: 'smooth' }}
-                        >
-                            {technologies.map((tech) => (
-                                <span key={tech} className="px-2 py-1 bg-sky-100 text-sky-800 rounded-full text-sm whitespace-nowrap">
+                    <CardTitle className="text-2xl font-bold mb-3 text-sky-900">{title}</CardTitle>
+                    <p className="text-gray-700 mb-4 flex-grow">{summary}</p>
+                    <div className="mb-4">
+                        <p className="font-semibold mb-2 text-sky-800">Principais tecnologias:</p>
+                        <div className="flex flex-wrap gap-2">
+                            {technologies.slice(0, 3).map((tech) => (
+                                <span key={tech} className="px-2 py-1 bg-sky-100 text-sky-800 rounded-full text-sm">
                                     {tech}
                                 </span>
                             ))}
+                            {technologies.length > 3 && (
+                                <span className="px-2 py-1 bg-sky-100 text-sky-800 rounded-full text-sm">
+                                    +{technologies.length - 3}
+                                </span>
+                            )}
                         </div>
-                        {showLeftArrow && (
-                            <button
-                                onClick={() => scroll('left')}
-                                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 rounded-full p-1 shadow-md"
-                            >
-                                <ChevronLeft size={20} className="text-sky-600" />
-                            </button>
-                        )}
-                        {showRightArrow && (
-                            <button
-                                onClick={() => scroll('right')}
-                                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 rounded-full p-1 shadow-md"
-                            >
-                                <ChevronRight size={20} className="text-sky-600" />
-                            </button>
-                        )}
                     </div>
-                    <Button variant="link" className="text-sky-600 hover:text-sky-700 p-0 mt-2 self-start">
-                        Ver mais detalhes <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform duration-300" />
-                    </Button>
+                    <Link href={`/projetos/${slug}`} passHref>
+                        <Button variant="link" className="text-sky-600 hover:text-sky-700 p-0 mt-2 self-start">
+                            Ver detalhes <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform duration-300" />
+                        </Button>
+                    </Link>
                 </CardContent>
             </Card>
         </motion.div>
     );
 };
 
-const projects: ProjectCardProps[] = [
+const projects = [
     {
         title: "Investor Acumen",
-        description: "Sistema completo de indicadores financeiros com APIs de diversas fontes e processos automáticos de cálculo de portfólio.",
-        client: "Cliente em Nova York",
-        duration: "2010 - presente",
-        details: [
-            "Sistema de indicadores financeiros",
-            "API de consulta FRED, QUANDL, GuruFocus, e outras fontes de dados",
-            "API de Corretora ETRADE com operações de trading em tempo real",
-            "Banco de dados de Ativos, Indicadores e histórico de dados (3678 tabelas)",
-            "Processos automáticos de cálculo do portfólio",
-            "Sistema de subscritores",
-            "Conexão ao sistema de Bloomberg com interface proprietária",
-            "Conexão ao sistema de Seeking Alpha com interface proprietária"
-        ],
-        technologies: ["Java", "C#", "PHP", "Python", "Pandas", "Anaconda", "C", "PostgreSQL", "MySQL"]
+        summary: "Sistema completo de indicadores financeiros com APIs de diversas fontes e processos automáticos de cálculo de portfólio.",
+        technologies: ["Java", "C#", "PHP", "Python", "PostgreSQL", "MySQL"],
+        slug: "investor-acumen"
     },
     {
         title: "ASTRAM",
-        description: "Aplicativo sindical com gestão de associados, carteira virtual, sistema de enquetes e notícias.",
-        details: [
-            "Gestão de associados",
-            "Carteira Virtual",
-            "Sistema de Enquetes",
-            "Notícias"
-        ],
-        technologies: ["React", "React Native", "Firebase Auth", "Firebase Firestore"]
+        summary: "Aplicativo sindical com gestão de associados, carteira virtual, sistema de enquetes e notícias.",
+        technologies: ["React", "React Native", "Firebase"],
+        slug: "astram"
     },
     {
         title: "Dendicasa",
-        description: "Aplicativo de entregas estilo Uber Eats com integração de pagamentos.",
-        details: [
-            "Aplicativo de entregas tipo Uber Eats",
-            "Traça rotas dos pedidos",
-            "Integração de pagamentos com EBANX"
-        ],
-        technologies: ["React Native", "Firebase", "EBANX API"]
+        summary: "Aplicativo de entregas estilo Uber Eats com integração de pagamentos EBANX.",
+        technologies: ["React Native", "Firebase", "EBANX API"],
+        slug: "dendicasa"
     },
     {
         title: "Sistema de Identidade - Panamá",
-        description: "Sistema de emissão de carteira de identidade e passaporte com suporte biométrico para o Panamá.",
-        details: [
-            "Cadastro do cidadão",
-            "Cadastro de biometria (de dedos e facial)",
-            "Reconhecimento biométrico",
-            "API de integração do sistema para todo o país",
-            "Implementação em Panamá"
-        ],
-        technologies: ["C++", "C#", "Java", "Oracle"]
+        summary: "Sistema de emissão de carteira de identidade e passaporte com suporte biométrico para o Panamá.",
+        technologies: ["C++", "C#", "Java", "Oracle"],
+        slug: "sistema-identidade-panama"
     },
     {
         title: "Sistema de Identidade - Paraguai",
-        description: "Sistema de emissão de carteira de identidade e passaporte com suporte biométrico para o Paraguai.",
-        details: [
-            "Cadastro do cidadão",
-            "Cadastro de biometria (de dedos e facial)",
-            "Reconhecimento biométrico",
-            "API de integração do sistema para todo o país",
-            "Implementação no Paraguai"
-        ],
-        technologies: ["C++", "C#", "Java", "Oracle"]
+        summary: "Sistema de emissão de carteira de identidade e passaporte com suporte biométrico para o Paraguai.",
+        technologies: ["C++", "C#", "Java", "Oracle"],
+        slug: "sistema-identidade-paraguai"
     }
 ];
 
@@ -225,9 +135,7 @@ export default function PortfolioPage() {
                             transition={{ duration: 0.5, staggerChildren: 0.1 }}
                         >
                             {projects.map((project) => (
-                                <div key={project.title} className="h-full"> {/* Wrapper para manter a altura consistente */}
-                                    <ProjectCard {...project} />
-                                </div>
+                                <ProjectCard key={project.slug} {...project} />
                             ))}
                         </motion.div>
                     </Container>
