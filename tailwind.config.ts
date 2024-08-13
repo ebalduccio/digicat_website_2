@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -75,6 +75,15 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+  safelist: [
+    {
+      pattern: /(bg|text|border)-(sky|blue|green|orange|red|purple)-(50|100|200|500|800)/,
+      variants: ['hover', 'focus'],
+    },
+    {
+      pattern: /from-(sky|blue|green|orange|red|purple)-(50|100)/,
+    },
+  ],
 } satisfies Config
 
 export default config
