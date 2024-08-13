@@ -42,15 +42,6 @@ export default function ASTRAMPage() {
                                 sistema de enquetes e notícias, tudo em uma plataforma móvel intuitiva e eficiente.
                             </p>
                         </div>
-                        <div className="md:w-1/3 mt-8 md:mt-0">
-                            <Image
-                                src="/images/astram-mockup.png" // Certifique-se de ter esta imagem em seu projeto
-                                alt="ASTRAM App Mockup"
-                                width={300}
-                                height={600}
-                                className="rounded-lg shadow-xl"
-                            />
-                        </div>
                     </div>
 
                     <div className="mb-12">
