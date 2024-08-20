@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Palette, Globe, Layout, Smartphone, Brain } from "lucide-react";
+import { ArrowRight, Palette, Globe, Layout, Smartphone, Brain, Megaphone } from "lucide-react";
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 
@@ -87,6 +87,11 @@ const services: ServiceCardProps[] = [
     Icon: Brain,
     title: "Inteligência Artificial (IA)",
     description: "Implementamos soluções inteligentes que automatizam processos e fornecem insights valiosos para seu negócio."
+  },
+  {
+    Icon: Megaphone,
+    title: "Tráfego Pago e Marketing Digital",
+    description: "Impulsionamos suas vendas através de estratégias de anúncios e publicidade digital altamente direcionadas e eficazes."
   }
 ];
 

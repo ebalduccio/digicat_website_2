@@ -4,7 +4,7 @@ import React, { useRef } from 'react';
 import { Container } from "@/components/ui/container";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { Phone, Mail, MessageCircle } from "lucide-react";
 import { motion, useInView } from 'framer-motion';
 
 const AnimatedSection = ({ children, className }: { children: React.ReactNode; className?: string }) => {
@@ -99,7 +99,6 @@ export default function ContatoPage() {
                                             animate={{ opacity: 1 }}
                                             transition={{ staggerChildren: 0.1, delayChildren: 0.3 }}
                                         >
-                                            <ContactInfo icon={<MapPin className="h-5 w-5" />} text="R. da Boa Viagem, 15 - Monte Serrat, Salvador - BA, 40414-610" />
                                             <ContactInfo icon={<Phone className="h-5 w-5" />} text="+55 (71) 9 9226-6505" />
                                             <ContactInfo icon={<Mail className="h-5 w-5" />} text="contato@digicat.com.br" />
                                         </motion.div>
@@ -107,22 +106,6 @@ export default function ContatoPage() {
                                 </Card>
                             </AnimatedSection>
                         </div>
-
-                        <AnimatedSection>
-                            <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden max-w-4xl mx-auto">
-                                <CardContent className="p-0 h-[400px]">
-                                    <iframe 
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6419398835574!2d-38.517682224169526!3d-12.930719658990146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7160530ad57a8c5%3A0x238eb9c5de51d702!2sDigicat%20-%20P%C3%A1ginas%20Web%2C%20Aplicativos%20Android%20e%20iOS%2C%20Desenvolvimento%20de%20sistemas%20em%20geral.!5e0!3m2!1ses-419!2sbr!4v1723484872402!5m2!1ses-419!2sbr"
-                                        width="100%"
-                                        height="100%"
-                                        style={{ border: 0 }}
-                                        allowFullScreen
-                                        loading="lazy"
-                                        referrerPolicy="no-referrer-when-downgrade"
-                                    ></iframe>
-                                </CardContent>
-                            </Card>
-                        </AnimatedSection>
                     </Container>
                 </section>
             </AnimatedSection>
