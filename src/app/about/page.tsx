@@ -154,7 +154,7 @@ export default function About() {
                             Conheça os <span className="text-sky-500">Fundadores</span> da Digicat
                         </h2>
                     </AnimatedSection>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                         <PartnerCard
                             name="Edgardo"
                             role="Fundador & Desenvolvedor Fullstack"
@@ -169,10 +169,17 @@ export default function About() {
                             description="Enzo combina sua paixão por design com expertise em tecnologias frontend, criando interfaces intuitivas e responsivas que elevam a experiência do usuário em cada solução digital da Digicat."
                             imageSrc="/images/enzo.jpg"
                         />
+                        <PartnerCard
+                            name="Thiago Rizzone"
+                            role="Gestor de Tráfego & Copywriter"
+                            specialization="Especialista em Marketing Digital"
+                            description="Thiago traz uma perspectiva estratégica única para a Digicat, combinando sua expertise em gestão de tráfego com habilidades excepcionais de copywriting. Sua capacidade de criar campanhas impactantes e conteúdo persuasivo impulsiona o alcance e a eficácia de nossas soluções digitais."
+                            imageSrc="/images/thiago.jpg"
+                        />
                     </div>
                     <AnimatedSection className="mt-12 text-center">
                         <p className="text-xl text-sky-800 leading-relaxed backdrop-blur-sm bg-white/30 p-6 rounded-lg shadow-lg">
-                            Juntos, Edgardo e Enzo formam uma parceria técnica poderosa, combinando expertise fullstack e frontend especializado para criar soluções digitais completas e inovadoras. Sua sinergia impulsiona a Digicat a oferecer produtos de ponta que atendem às necessidades tecnológicas modernas, do backend ao frontend.
+                            Juntos, Edgardo, Enzo e Thiago formam uma equipe multidisciplinar poderosa, combinando expertise técnica, design de interface e marketing digital. Esta sinergia única permite à Digicat oferecer soluções digitais completas e inovadoras, desde o desenvolvimento backend até a estratégia de marketing, garantindo que nossos produtos não apenas funcionem perfeitamente, mas também alcancem e engajem efetivamente o público-alvo.
                         </p>
                     </AnimatedSection>
                 </Container>

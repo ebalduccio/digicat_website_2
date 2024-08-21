@@ -4,14 +4,27 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp, Award, Zap, Users, Target, Rocket } from "lucide-react";
+import { 
+  ArrowRight, 
+  TrendingUp, 
+  Award, 
+  Zap, 
+  Users, 
+  Target, 
+  Rocket,
+  Palette,
+  Globe,
+  LayoutDashboard,
+  Smartphone,
+  Brain,
+  Megaphone
+} from "lucide-react";
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const LandingPage = () => {
   const [isVisible, setIsVisible] = useState(false);
-
 
   useEffect(() => {
     setIsVisible(true);
@@ -21,8 +34,9 @@ const LandingPage = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
   };
+
   interface ServiceCardProps {
-    icon: string;
+    Icon: React.ElementType;
     title: string;
     content: string;
   }
@@ -44,7 +58,7 @@ const LandingPage = () => {
     );
   };
 
-  const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, content }) => (
+  const ServiceCard: React.FC<ServiceCardProps> = ({ Icon, title, content }) => (
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
@@ -58,7 +72,7 @@ const LandingPage = () => {
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           />
           <CardTitle className="flex items-center space-x-3 text-2xl font-bold text-sky-900 group-hover:text-sky-700 transition-colors duration-300">
-            <Image src={icon} alt={title} width={36} height={36} className="z-10" />
+            <Icon size={36} className="z-10 text-sky-600" />
             <span>{title}</span>
           </CardTitle>
         </CardHeader>
@@ -83,34 +97,40 @@ const LandingPage = () => {
 
   const services: Service[] = [
     {
-      icon: '/icons/DesignIconHome.svg',
+      Icon: Palette,
       title: 'UI/X Design',
       content: 'Transformamos ideias em realidade visual com designs de alta qualidade e centrados no usuário.',
       image: '/images/designhome.png'
     },
     {
-      icon: '/icons/WebIconHome.svg',
+      Icon: Globe,
       title: 'Páginas Web Interativas',
       content: 'Criamos experiências web envolventes que não apenas atraem, mas também convertem visitantes em clientes fiéis.',
       image: '/images/WebHome.png'
     },
     {
-      icon: '/icons/ServerIconhome.svg',
+      Icon: LayoutDashboard,
       title: 'Sistemas Web e Desktop',
       content: 'Desenvolvemos sistemas robustos e escaláveis, personalizados para otimizar seus processos operacionais.',
       image: '/images/ServerHome.png'
     },
     {
-      icon: '/icons/AndroidIconHome.svg',
+      Icon: Smartphone,
       title: 'Aplicativos iOS e Android',
       content: 'Expandimos o alcance do seu negócio com aplicativos móveis intuitivos e de alto desempenho.',
       image: '/images/MobileHome.png'
     },
     {
-      icon: '/icons/IAIconHome.svg',
+      Icon: Brain,
       title: 'Inteligência Artificial (IA)',
       content: 'Implementamos soluções de IA para automatizar processos e fornecer insights valiosos para seu negócio.',
       image: '/images/IAHome.png'
+    },
+    {
+      Icon: Megaphone,
+      title: 'Marketing Digital',
+      content: 'Impulsionamos sua presença online com estratégias de marketing digital personalizadas e orientadas por dados.',
+      image: '/images/MarketingHome.png'
     }
   ];
 
@@ -232,7 +252,7 @@ const LandingPage = () => {
               <div className={`flex flex-col lg:flex-row items-center justify-between gap-12 mb-20 ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
                 <div className="flex-1 space-y-6">
                   <Link href={'/services'}>
-                    <ServiceCard icon={service.icon} title={service.title} content={service.content} />
+                    <ServiceCard Icon={service.Icon} title={service.title} content={service.content} />
                   </Link>
                 </div>
                 <motion.div
