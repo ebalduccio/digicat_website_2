@@ -42,7 +42,7 @@ const PartnerCard = ({ name, role, specialization, description, imageSrc }: { na
             <CardContent className="p-6 flex flex-col items-center text-center relative z-10">
                 <Image
                     src={imageSrc}
-                    alt={name}
+                    alt={''}
                     width={150}
                     height={150}
                     className="rounded-full mb-4 border-4 border-sky-500 shadow-lg"
@@ -156,14 +156,14 @@ export default function About() {
                     </AnimatedSection>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                         <PartnerCard
-                            name="Edgardo"
+                            name="Edgardo Balduccio"
                             role="Fundador & Desenvolvedor Fullstack"
                             specialization="Especialista em Soluções Web Completas"
                             description="Com uma visão técnica abrangente e anos de experiência em desenvolvimento fullstack, Edgardo é o arquiteto versátil por trás de nossas soluções end-to-end. Sua expertise em tecnologias frontend e backend garante a criação de aplicações robustas, escaláveis e com experiências de usuário excepcionais."
                             imageSrc="/images/edgardo.jpg"
                         />
                         <PartnerCard
-                            name="Enzo"
+                            name="Enzo Balduccio"
                             role="Co-fundador & Desenvolvedor Frontend"
                             specialization="Especialista em Interfaces de Usuário"
                             description="Enzo combina sua paixão por design com expertise em tecnologias frontend, criando interfaces intuitivas e responsivas que elevam a experiência do usuário em cada solução digital da Digicat."
