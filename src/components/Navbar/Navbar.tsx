@@ -10,36 +10,49 @@ import { motion, AnimatePresence } from 'framer-motion';
 import NavLinks from './NavLinks';
 import NavLinksMobile from './NavLinksMobile';
 import Container from '../Container';
-import { Button } from "@/components/ui/button";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const [isTop, setIsTop] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsTop(window.scrollY === 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navbarClasses = `sticky z-50 top-0 inset-x-0 h-20 transition-all duration-300 bg-transparent ${
+    !isTop ? 'backdrop-blur-md' : ''
+  }`;
+
   return (
     <>
-      <div className='bg-white sticky z-50 top-0 inset-x-0 h-20 shadow-sm'>
-        <header className='relative bg-white h-20'>
+      <div className={navbarClasses}>
+        <header className='relative h-20'>
           <Container>
             <div className='flex justify-between items-center h-20'>
               <Link href={'/'} className='flex items-center'>
                 <Image
-                  src={'/icons/Logo.svg'}
+                  src='/icons/WhiteLogo.svg'
                   alt='Digicat logo'
                   width={150}
                   height={40}
                   className="mr-4"
                 />
               </Link>
-              <nav className='hidden lg:flex items-center space-x-8'>
+              <nav className='hidden lg:flex items-center space-x-8 text-white'>
                 <NavLinks />
               </nav>
               <button 
-                className='lg:hidden p-2 rounded-md hover:bg-gray-100 transition duration-200'
+                className='lg:hidden p-2 rounded-md text-white hover:bg-white/20 transition duration-200'
                 onClick={() => setOpen(!open)}
               >
                 {open ? <X size={24} /> : <MenuIcon size={24} />}
@@ -57,18 +70,18 @@ function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
-            className="lg:hidden fixed inset-y-0 left-0 z-50 w-72 bg-white shadow-xl"
+            className="lg:hidden fixed inset-y-0 left-0 z-50 w-72 bg-gray-900 shadow-xl"
           >
             <div className="flex flex-col h-full">
-              <div className="flex justify-between items-center p-4 border-b">
+              <div className="flex justify-between items-center p-4 border-b border-gray-700">
                 <Image
-                  src={'/icons/Logo.svg'}
+                  src='/icons/WhiteLogo.svg'
                   alt='Digicat logo'
                   width={120}
                   height={30}
                 />
                 <button 
-                  className='p-2 rounded-md hover:bg-gray-100 transition duration-200'
+                  className='p-2 rounded-md text-white hover:bg-white/20 transition duration-200'
                   onClick={() => setOpen(false)}
                 >
                   <X size={24} />

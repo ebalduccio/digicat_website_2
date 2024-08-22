@@ -18,7 +18,7 @@ const NavLinksMobile = () => {
                 w-full py-3 px-4 rounded-md transition duration-300 ease-in-out
                 ${isActive 
                   ? 'bg-sky-50 text-sky-600' 
-                  : 'text-gray-700 hover:bg-gray-100'
+                  : 'text-white hover:bg-gray-100'
                 }
               `}
               whileTap={{ scale: 0.95 }}

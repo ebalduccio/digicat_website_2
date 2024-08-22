@@ -22,13 +22,13 @@ export default function RootLayout({
     <html lang="en" className='h-full'>
       <body className={cn('relative h-full antialiased font-rhd')}>
         <NavbarProvider>
-          <main className='absolute sm:relative flex flex-col min-h-screen'>
-            <div className='flex-grow flex-1'>
-              <Navbar />
+          <div className='flex bg-gray-900 flex-col min-h-screen'>
+            <Navbar />
+            <main className='flex-grow'>
               {children}
-              <FooterWrapper />
-            </div>
-          </main>
+            </main>
+            <FooterWrapper />
+          </div>
         </NavbarProvider>
       </body>
     </html>

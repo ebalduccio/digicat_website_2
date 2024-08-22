@@ -4,13 +4,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { 
-  ArrowRight, 
-  TrendingUp, 
-  Award, 
-  Zap, 
-  Users, 
-  Target, 
+import {
+  ArrowRight,
+  TrendingUp,
+  Award,
+  Zap,
+  Users,
+  Target,
   Rocket,
   Palette,
   Globe,
@@ -22,6 +22,23 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+const CodeLine: React.FC<{ delay: number }> = ({ delay }) => {
+  return (
+    <motion.div
+      className="h-px bg-sky-500/30"
+      initial={{ width: 0 }}
+      animate={{ width: '100%' }}
+      transition={{
+        duration: Math.random() * 2 + 1,
+        delay: delay,
+        repeat: Infinity,
+        repeatType: 'reverse',
+        ease: 'easeInOut'
+      }}
+    />
+  );
+};
 
 const LandingPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -91,6 +108,7 @@ const LandingPage = () => {
     </motion.div>
   );
 
+
   interface Service extends ServiceCardProps {
     image: string;
   }
@@ -128,33 +146,34 @@ const LandingPage = () => {
     },
     {
       Icon: Megaphone,
-      title: 'Marketing Digital',
+      title: 'Tráfego Pago e Marketing Digital',
       content: 'Impulsionamos sua presença online com estratégias de marketing digital personalizadas e orientadas por dados.',
       image: '/images/MarketingHome.png'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-950 text-white">
+
       <Container>
         <header className="py-20 text-center">
           <motion.h1
-            className="text-5xl md:text-6xl font-bold mb-6 text-sky-400"
+            className="text-5xl md:text-6xl font-bold mb-6 text-white"
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
             variants={fadeIn}
             transition={{ duration: 0.8 }}
           >
-            Domine o Mundo Digital e Supere Seus Concorrentes
+            Se Atualize no Digital e Pare de Perder Espaço Para Seus Concorrentes.
           </motion.h1>
           <motion.p
-            className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
+            className="text-xl text-white mb-10 max-w-2xl mx-auto"
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
             variants={fadeIn}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Transforme seu Negócio com Tecnologia de Ponta - Sem Ficar Para Trás
+            Não Descansamos Até que Você Obtenha Resultados.
           </motion.p>
           <motion.div
             initial="hidden"
@@ -162,8 +181,12 @@ const LandingPage = () => {
             variants={fadeIn}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Button size="lg" className="bg-sky-500 hover:bg-sky-600 text-white px-8 py-3 rounded-full text-lg shadow-lg transition-all duration-300">
-              Acelere Seu Crescimento Digital Agora
+            <Button
+              size="lg"
+              className="bg-sky-500 hover:bg-sky-600 text-white px-8 py-7 rounded-md text-md transition-all duration-300
+             shadow-[0_0_20px_5px_rgba(56,189,248,0.6)] hover:shadow-[0_0_30px_10px_rgba(56,189,248,0.8)]"
+            >
+              ACELERE SEU CRESCIMENTO DIGITAL AGORA
               <ArrowRight className="ml-2" />
             </Button>
           </motion.div>

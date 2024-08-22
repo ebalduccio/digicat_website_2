@@ -16,7 +16,7 @@ function NavLinks() {
               relative font-medium text-sm px-3 py-2 rounded-md transition duration-300 ease-in-out
               ${isActive 
                 ? 'text-sky-600 bg-sky-50' 
-                : 'text-gray-700 hover:text-sky-600 hover:bg-sky-50'
+                : 'hover:text-sky-600 hover:bg-sky-50'
               }
             `}>
               {item.label}

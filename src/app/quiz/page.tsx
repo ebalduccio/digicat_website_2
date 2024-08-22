@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
+import Link from 'next/link';
 
 interface Question {
     question: string;
@@ -22,39 +23,35 @@ interface UserInfo {
 
 const questions: Question[] = [
     {
-        question: "Qual é o principal objetivo da sua presença online?",
+        question: "Quanto você investe em tráfego pago na sua empresa? (Não será compartilhado)",
         options: [
-            "Aumentar vendas",
-            "Melhorar a visibilidade da marca",
-            "Gerar leads",
-            "Oferecer suporte ao cliente"
-        ]
-    },
-    {
-        question: "Quanto você investe atualmente em marketing digital?",
-        options: [
-            "Nada",
             "Menos de R$1000/mês",
             "R$1000 - R$5000/mês",
             "Mais de R$5000/mês"
         ]
     },
     {
-        question: "Qual área do marketing digital você acha mais desafiadora?",
+        question: "Você tem algum sistema de monitoramento das suas métricas online?",
         options: [
-            "SEO",
-            "Mídias Sociais",
-            "Publicidade Paga",
-            "Criação de Conteúdo"
+            "Sim",
+            "Não"
         ]
     },
     {
-        question: "Com que frequência você atualiza seu site ou conteúdo online?",
+        question: "Quantos posts por mês você realiza no Instagram ou sites de blogs?",
         options: [
-            "Diariamente",
-            "Semanalmente",
-            "Mensalmente",
-            "Raramente ou nunca"
+            "1-5",
+            "5-10",
+            "10-20",
+            "20-30",
+            "+30",
+        ]
+    },
+    {
+        question: "Você já utiliza ferramentas de inteligência artificial no seu negócio?",
+        options: [
+            "Sim",
+            "Não",
         ]
     },
     {
@@ -98,7 +95,7 @@ const QuizPage: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-sky-100 to-white flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-gray-950 to-sky-900 flex items-center justify-center p-4">
             <Container className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl w-full">
                 <Progress
                     value={progress}
@@ -108,7 +105,7 @@ const QuizPage: React.FC = () => {
                 {step === 0 && (
                     <>
                         <h1 className="text-4xl font-bold mb-6 text-center text-gray-800 leading-tight">
-                            Quer aumentar sua presença digital?
+                            Quer começar a ter resutados usando a internet?
                         </h1>
                         <p className="text-xl mb-8 text-center text-gray-600">
                             Coloque a URL da sua empresa. Eu vou analisá-la com meu software enquanto você responde 5 perguntas rápidas do quiz.
@@ -166,7 +163,7 @@ const QuizPage: React.FC = () => {
                             Última etapa!
                         </h2>
                         <p className="text-xl mb-8 text-center text-gray-600">
-                            Preencha seus dados para receber sua análise personalizada.
+                            Conclua as etapas finais para receber a análise customizada do seu negócio.
                         </p>
                         <div className="space-y-4">
                             <Input
@@ -190,9 +187,11 @@ const QuizPage: React.FC = () => {
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserInfo({ ...userInfo, phone: e.target.value })}
                                 className="w-full p-4 text-lg border-2 border-gray-300 rounded-lg focus:border-sky-500 focus:ring-2 focus:ring-sky-200 transition-all"
                             />
-                            <Button onClick={handleSubmit} className="w-full bg-sky-600 hover:bg-sky-700 text-white py-4 rounded-lg text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105">
-                                Receber Minha Análise Gratuita <ArrowRight className="ml-2" />
-                            </Button>
+                            <Link href={'/quiz/quiz-results'} className='mt-4'>
+                                <Button onClick={handleSubmit} className="w-full bg-sky-600 hover:bg-sky-700 text-white py-4 rounded-lg text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105">
+                                    Receber Minha Análise Gratuita <ArrowRight className="ml-2" />
+                                </Button>
+                            </Link>
                         </div>
                     </>
                 )}

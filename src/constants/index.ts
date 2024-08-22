@@ -4,16 +4,16 @@ export const NavItems = [
         href: '/'
     },
     {
-        label: 'Quem somos?',
-        href: '/about'
+        label: 'Serviços',
+        href: '/services'
     },
     {
         label: 'Portfólio',
         href: '/portfolio'
     },
     {
-        label: 'Serviços',
-        href: '/services'
+        label: 'Quem somos?',
+        href: '/about'
     },
     {
         label: 'Contato',
