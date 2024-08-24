@@ -3,7 +3,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { Send, User, Bot } from "lucide-react";
+import { Send, User } from "lucide-react";
+import Image from 'next/image';
 
 interface Message {
   id: number;
@@ -13,7 +14,7 @@ interface Message {
 
 export default function OrcamentoPage() {
   const [messages, setMessages] = useState<Message[]>([
-    { id: 1, text: "Olá! Sou o assistente de orçamentos da Digicat. Como posso ajudar você hoje?", sender: 'ai' }
+    { id: 1, text: "Olá! Meu nome é Digiquinho! Sou o analista de projetos empresariais da Digicat. Vou te fazer 4 perguntas rápidas.", sender: 'ai' }
   ]);
   const [input, setInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -64,12 +65,23 @@ export default function OrcamentoPage() {
                 className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`flex items-start space-x-2 max-w-[70%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''
+                  className={`flex items-start space-x-4 max-w-[70%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''
                     }`}
                 >
-                  <div className={`flex-shrink-0 rounded-full p-2 ${message.sender === 'user' ? 'bg-sky-500' : 'bg-gray-200'
+                  <div className={`flex-shrink-0 rounded-full ${message.sender === 'user' ? 'bg-sky-500 p-6' : 'bg-gray-200 overflow-hidden'
                     }`}>
-                    {message.sender === 'user' ? <User size={20} className="text-white" /> : <Bot size={20} className="text-sky-500" />}
+                    {message.sender === 'user' ? (
+                      <User size={60} className="text-white" />
+                    ) : (
+                      <div className="w-[84px] h-[84px] relative">
+                        <Image 
+                          src='/images/digiquinho.png' 
+                          alt='digiquinho' 
+                          layout="fill" 
+                          objectFit="cover"
+                        />
+                      </div>
+                    )}
                   </div>
                   <div
                     className={`rounded-2xl p-4 shadow-md ${message.sender === 'user'

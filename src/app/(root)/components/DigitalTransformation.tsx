@@ -80,9 +80,9 @@ const DigitalTransformation: React.FC = () => {
                     >
                         <Button
                             size="lg"
-                            className="bg-sky-500 hover:bg-sky-600 text-white font-bold px-6 py-4 rounded-md text-sm shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+                            className="bg-sky-500 hover:bg-sky-600 text-white font-bold px-8 py-6 rounded-md text-sm shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1"
                         >
-                            QUERO SERVIÇO GRATUITAMENTE
+                            RECEBER UMA ANÁLISE GRATUITA
                         </Button>
                     </motion.div>
                 </motion.div>

@@ -7,8 +7,9 @@ export function FooterWrapper() {
   const pathname = usePathname();
   const isOrcamentoPage = pathname === '/orcamento';
   const isQuizPage = pathname === '/quiz';
+  const Chat = pathname === '/chat';
 
-  if (isOrcamentoPage || isQuizPage) {
+  if (isOrcamentoPage || isQuizPage  || Chat) {
     return null;
   }
 
