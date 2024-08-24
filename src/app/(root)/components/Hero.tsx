@@ -13,11 +13,11 @@ const Hero: React.FC = () => {
   const [typingSpeed, setTypingSpeed] = useState<number>(150);
 
   const services: string[] = [
-    'Desenvolvimento de sites',
-    'Desenvolvimento de software',
-    'Marketing digital',
+    'Desenvolvimento de Sites',
+    'Desenvolvimento de Software',
+    'Marketing Digital',
     'Inteligência Artificial',
-    'Aplicativos móveis',
+    'Aplicativos Móveis',
     'UI/UX Design',
   ];
 
@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              Impulsione o <span className='font-bold'>crescimento</span> da sua empresa com...
+              Acelere o <span className='font-bold'>crescimento</span> da sua empresa com...
             </motion.h2>
             <motion.div
               className="text-4xl font-semibold h-20 leading-[70px] relative tracking-wide"
@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <span className="bg-gradient-to-r from-sky-300 via-sky-400 to-green-300 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-sky-300 via-sky-400 to-green-500 text-transparent bg-clip-text">
                 {text}
               </span>
             </motion.div>
@@ -100,9 +100,9 @@ const Hero: React.FC = () => {
           >
             <Button
               size="lg"
-              className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-4 mt-4 rounded-md text-sm transition-all duration-300 tracking-wider"
+              className="bg-sky-500 hover:bg-sky-600 text-white font-bold px-6 py-4 mt-4 rounded-md text-sm transition-all duration-300 tracking-wider"
             >
-              QUERO IMPULSIONAR MEU NEGÓCIO
+              QUERO ACELERAR MEU NEGÓCIO
               <ArrowRight className="ml-2" />
             </Button>
           </motion.div>

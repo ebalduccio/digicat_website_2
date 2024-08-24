@@ -29,7 +29,7 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navbarClasses = `sticky z-50 top-0 inset-x-0 h-20 transition-all duration-300 bg-transparent ${
+  const navbarClasses = `sticky z-50 top-0 inset-x-0 h-24 transition-all duration-300 bg-gradient-to-r from-gray-900 to-sky-950 ${
     !isTop ? 'backdrop-blur-md' : ''
   }`;
 
@@ -38,7 +38,7 @@ function Navbar() {
       <div className={navbarClasses}>
         <header className='relative h-20'>
           <Container>
-            <div className='flex justify-between items-center h-20'>
+            <div className='flex justify-between items-center h-24'>
               <Link href={'/'} className='flex items-center'>
                 <Image
                   src='/icons/WhiteLogo.svg'
@@ -48,7 +48,7 @@ function Navbar() {
                   className="mr-4"
                 />
               </Link>
-              <nav className='hidden lg:flex items-center space-x-8 text-white'>
+              <nav className='hidden lg:flex text-white items-center space-x-8'>
                 <NavLinks />
               </nav>
               <button 
