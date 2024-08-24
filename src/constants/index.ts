@@ -1,24 +1,49 @@
+import { Brain, Code, Smartphone, Settings, Palette, Target, Search, Users, BookOpen, Briefcase, Clock, MessageSquare, FileText, Rocket, HelpCircle, Newspaper, Video } from 'lucide-react';
+
 export const NavItems = [
     {
-        label: 'Home',
-        href: '/'
-    },
-    {
-        label: 'Serviços',
-        href: '/services'
+        label: 'Soluções',
+        href: '/services',
+        subItems: [
+            { label: 'IA (Inteligência Artificial)', href: '/services/ai', icon: Brain },
+            { label: 'Desenvolvimento Web', href: '/services/web-development', icon: Code },
+            { label: 'Aplicativos IOS e Android', href: '/services/apps', icon: Smartphone },
+            { label: 'Software Personalizado', href: '/services/software', icon: Settings },
+            { label: 'UI/X Design', href: '/services/design', icon: Palette },
+            { label: 'Marketing Digital', href: '/services/marketing', icon: Target },
+            { label: 'SEO e Otimização', href: '/services/SEO', icon: Search },
+        ]
     },
     {
         label: 'Portfólio',
-        href: '/portfolio'
+        href: '/portfolio',
+        subItems: [
+            {label: 'Cases', href: '/portfolio/cases', icon: Briefcase},
+            {label: 'Projetos Recentes', href: '/portfolio/projects', icon: Clock},
+            {label: 'Depoimentos', href: '/portfolio/testmonies', icon: MessageSquare},
+            {label: 'Estudos de Caso', href: '/portfolio/case-study', icon: FileText}
+        ]
     },
     {
-        label: 'Quem somos?',
-        href: '/about'
+        label: 'Digicat',
+        href: '/about',
+        subItems: [
+            { label: 'Nossa Missão', href: '/about/mission', icon: Rocket },
+            { label: 'Nossa Equipe', href: '/about/team', icon: Users },
+            { label: 'Consultoria Gratuita', href: '/about/free-consultation', icon: HelpCircle },
+        ]
     },
     {
-        label: 'Contato',
+        label: 'Recursos',
+        href: '/resource',
+        subItems: [
+            { label: 'Blog', href: '/resource/blog', icon: Newspaper },
+            { label: 'Como Fazemos', href: '/about/how-we-do', icon: BookOpen },
+            { label: 'Tutoriais', href: '/about/tutorials', icon: Video },
+        ]
+    },
+    {
+        label: 'Fale Conosco',
         href: '/contact'
     },
 ];
-
-
