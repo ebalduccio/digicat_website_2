@@ -59,69 +59,7 @@ const PartnerCard = ({ name, role, specialization, description, imageSrc }: { na
 
 export default function About() {
     return (
-        <div className="bg-gradient-to-br from-gray-900 to-blue-950 text-white">
-            <section className="py-20 overflow-hidden">
-                <Container>
-                    <AnimatedSection className="flex flex-col lg:flex-row items-center justify-between gap-12">
-                        <div className="flex-1 space-y-6 text-center lg:text-left">
-                            <h1 className="text-5xl font-bold text-sky-300 leading-tight">
-                                Transformando ideias em <span className="text-sky-400">resultados excepcionais</span>
-                            </h1>
-                            <p className="text-xl text-gray-300 leading-relaxed">
-                                Na Digicat, não nos contentamos com o comum. Nossa paixão pela <span className="text-sky-400 font-semibold">inovação</span> e nosso compromisso com o <span className="text-sky-400 font-semibold">sucesso do cliente</span> nos impulsionam a criar soluções digitais que verdadeiramente transformam negócios.
-                            </p>
-                        </div>
-                        <div className="flex-1 relative">
-                            <div className="absolute inset-0 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-                            <Image
-                                src="/images/AboutImage1.png"
-                                alt="Equipe Digicat"
-                                width={500}
-                                height={500}
-                                className="relative z-10 drop-shadow-2xl"
-                            />
-                        </div>
-                    </AnimatedSection>
-                </Container>
-            </section>
-
-            <AnimatedSection className="py-16 bg-gradient-to-r from-gray-900 to-gray-950 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/images/circuit-pattern.svg')] opacity-5"></div>
-                <Container className="relative z-10">
-                    <h2 className="text-3xl font-bold text-center mb-4 leading-tight">
-                        Na <span className="font-digicat text-sky-400">DIGICAT</span>, nosso compromisso é entregar <span className="text-sky-400">resultados tangíveis</span> e superar as <span className="text-sky-400">expectativas dos nossos clientes</span> em cada projeto.
-                    </h2>
-                </Container>
-            </AnimatedSection>
-
-            <section className="py-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-950 to-blue-950 opacity-50 transform -skew-y-6"></div>
-                <Container className="relative z-10">
-                    <AnimatedSection className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <ValueCard
-                            Icon={Zap}
-                            title="Dedicação Total"
-                            content="Comprometemo-nos 100% com o sucesso de cada projeto, indo além do esperado."
-                        />
-                        <ValueCard
-                            Icon={Target}
-                            title="Foco em Resultados"
-                            content="Nossa prioridade é entregar soluções que impulsionem seu negócio de forma mensurável."
-                        />
-                        <ValueCard
-                            Icon={Rocket}
-                            title="Inovação Constante"
-                            content="Buscamos continuamente novas tecnologias e abordagens para manter nossos clientes à frente."
-                        />
-                        <ValueCard
-                            Icon={LineChart}
-                            title="Crescimento Contínuo"
-                            content="Evoluímos constantemente nossas habilidades para oferecer sempre o melhor."
-                        />
-                    </AnimatedSection>
-                </Container>
-            </section>
-
+        <div>
             <section className="py-20 bg-gradient-to-r from-gray-950 to-blue-950 relative overflow-hidden">
                 <Container>
                     <AnimatedSection className="flex flex-col lg:flex-row items-center justify-between gap-12">

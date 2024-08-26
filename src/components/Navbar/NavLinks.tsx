@@ -48,7 +48,7 @@ function NavLinks() {
         return (
           <Link key={index} href={item.href}>
             <div className={`
-              relative font-medium text-lg px-3 py-2 rounded-md transition duration-300 ease-in-out
+              relative font-medium text-md px-3 py-2 rounded-md transition duration-300 ease-in-out
               ${isActive 
                 ? 'text-sky-600 bg-sky-50' 
                 : 'hover:text-sky-600 hover:bg-sky-50'

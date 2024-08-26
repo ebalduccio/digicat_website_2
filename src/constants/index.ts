@@ -8,10 +8,10 @@ export const NavItems = [
             { label: 'IA (Inteligência Artificial)', href: '/services/ai', icon: Brain },
             { label: 'Desenvolvimento Web', href: '/services/web-development', icon: Code },
             { label: 'Aplicativos IOS e Android', href: '/services/apps', icon: Smartphone },
-            { label: 'Software Personalizado', href: '/services/software', icon: Settings },
+            { label: 'Software Personalizado', href: '/services/software-development', icon: Settings },
             { label: 'UI/X Design', href: '/services/design', icon: Palette },
             { label: 'Marketing Digital', href: '/services/marketing', icon: Target },
-            { label: 'SEO e Otimização', href: '/services/SEO', icon: Search },
+            { label: 'SEO e Otimização', href: '/services/seo', icon: Search },
         ]
     },
     {
