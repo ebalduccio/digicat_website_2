@@ -3,50 +3,134 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { Send, User } from "lucide-react";
+import { Send, User, Download } from "lucide-react";
 import Image from 'next/image';
 
 interface Message {
-  id: number;
-  text: string;
-  sender: 'user' | 'ai';
+  role: 'user' | 'assistant';
+  content: string;
+  isTyping?: boolean;
 }
 
-export default function OrcamentoPage() {
-  const [messages, setMessages] = useState<Message[]>([
-    { id: 1, text: "Olá! Meu nome é Digiquinho! Sou o analista de projetos empresariais da Digicat. Vou te fazer 4 perguntas rápidas.", sender: 'ai' }
-  ]);
-  const [input, setInput] = useState('');
+interface ApiResponse {
+  reply: string;
+}
+
+export default function OrcamentoPage(): JSX.Element {
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [userId, setUserId] = useState<string>('');
+  const [isAiTyping, setIsAiTyping] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const initialMessageSent = useRef<boolean>(false);
 
-  const scrollToBottom = () => {
+  useEffect(() => {
+    setUserId(`user_${Math.random().toString(36).substr(2, 9)}`);
+
+    if (!initialMessageSent.current) {
+      addMessageWithTypingEffect({
+        role: 'assistant',
+        content: "Olá! Meu nome é Digiquinho! Sou o analista de projetos da Digicat. Em que posso lhe ajudar?"
+      });
+      initialMessageSent.current = true;
+    }
+  }, []);
+
+  const scrollToBottom = (): void => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(scrollToBottom, [messages]);
 
-  const handleSend = async () => {
-    if (input.trim() === '') return;
+  const processText = (text: string): JSX.Element => {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return (
+      <>
+        {parts.map((part, index) => {
+          if (part.startsWith('**') && part.endsWith('**')) {
+            return <strong key={index}>{part.slice(2, -2)}</strong>;
+          }
+          return part;
+        })}
+      </>
+    );
+  };
 
-    const newMessage: Message = {
-      id: messages.length + 1,
-      text: input,
-      sender: 'user'
-    };
+  const addMessageWithTypingEffect = (message: Message): void => {
+    setIsAiTyping(true);
+    setMessages(prev => [...prev, { ...message, content: '', isTyping: true }]);
+    let i = 0;
+    const interval = setInterval(() => {
+      setMessages(prev =>
+        prev.map((msg, index) =>
+          index === prev.length - 1
+            ? { ...msg, content: message.content.slice(0, i) }
+            : msg
+        )
+      );
+      i++;
+      if (i > message.content.length) {
+        clearInterval(interval);
+        setMessages(prev =>
+          prev.map((msg, index) =>
+            index === prev.length - 1
+              ? { ...msg, isTyping: false }
+              : msg
+          )
+        );
+        setIsAiTyping(false);
+      }
+    }, 20);
+  };
 
-    setMessages(prev => [...prev, newMessage]);
+  const handleSend = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
+    if (input.trim() === '' || isLoading || isAiTyping) return;
+
+    const userMessage: Message = { role: 'user', content: input };
+    setMessages(prev => [...prev, userMessage]);
     setInput('');
+    setIsLoading(true);
 
-    // Simulação de resposta da IA
-    setTimeout(() => {
-      const aiResponse: Message = {
-        id: messages.length + 2,
-        text: "Entendi sua necessidade. Poderia me fornecer mais detalhes sobre o projeto?",
-        sender: 'ai'
-      };
-      setMessages(prev => [...prev, aiResponse]);
-    }, 1000);
+    try {
+      const response = await fetch('https://api.digicat.com.br/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: userId,
+          message: input,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`API response was not ok: ${response.status}`);
+      }
+
+      const data: ApiResponse = await response.json();
+      addMessageWithTypingEffect({ role: 'assistant', content: data.reply });
+    } catch (error) {
+      console.error('Error:', error);
+      addMessageWithTypingEffect({ role: 'assistant', content: 'Desculpe, ocorreu um erro ao processar sua mensagem. Por favor, tente novamente.' });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleDownload = (): void => {
+    const conversationText = messages.map(msg => `${msg.role === 'user' ? 'Você' : 'Digiquinho'}: ${msg.content}`).join('\n\n');
+    const blob = new Blob([conversationText], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'conversa-digiquinho.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -59,66 +143,76 @@ export default function OrcamentoPage() {
         </p>
         <div className="flex-grow bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col">
           <div className="flex-grow overflow-y-auto p-6 space-y-6">
-            {messages.map((message) => (
+            {messages.map((message, index) => (
               <div
-                key={message.id}
-                className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                key={index}
+                className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`flex items-start space-x-4 max-w-[70%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''
+                  className={`flex items-start space-x-4 max-w-[70%] ${message.role === 'user' ? 'flex-row-reverse space-x-reverse' : ''
                     }`}
                 >
-                  <div className={`flex-shrink-0 rounded-full ${message.sender === 'user' ? 'bg-sky-500 p-6' : 'bg-gray-200 overflow-hidden'
-                    }`}>
-                    {message.sender === 'user' ? (
+                  <div className={`flex-shrink-0 rounded-full ${message.role === 'user' ? 'bg-sky-500' : 'bg-gray-200'} overflow-hidden w-[84px] h-[84px] flex items-center justify-center`}>
+                    {message.role === 'user' ? (
                       <User size={60} className="text-white" />
                     ) : (
-                      <div className="w-[84px] h-[84px] relative">
-                        <Image 
-                          src='/images/digiquinho.png' 
-                          alt='digiquinho' 
-                          layout="fill" 
+                      <div className="relative w-full h-full">
+                        <Image
+                          src='/images/digiquinho.png'
+                          alt='digiquinho'
+                          layout="fill"
                           objectFit="cover"
                         />
                       </div>
                     )}
                   </div>
                   <div
-                    className={`rounded-2xl p-4 shadow-md ${message.sender === 'user'
-                        ? 'bg-sky-500 text-white'
-                        : 'bg-gray-100 text-gray-800'
+                    className={`rounded-2xl p-4 shadow-md ${message.role === 'user'
+                      ? 'bg-sky-500 text-white'
+                      : 'bg-gray-100 text-gray-800'
                       }`}
                   >
-                    {message.text}
+                    {processText(message.content)}
+                    {message.isTyping && (
+                      <span className="inline-block ml-1 animate-pulse">...</span>
+                    )}
                   </div>
                 </div>
               </div>
             ))}
             <div ref={messagesEndRef} />
           </div>
-          <div className="border-t p-4 bg-gray-50">
+          <form onSubmit={handleSend} className="border-t p-4 bg-gray-50">
             <div className="max-w-4xl mx-auto flex items-center space-x-4">
               <div className="flex-grow relative">
                 <input
                   ref={inputRef}
                   type="text"
                   value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
                   placeholder="Digite sua mensagem..."
                   className="w-full px-6 py-4 bg-white border-2 border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent text-lg transition-all duration-300 ease-in-out pr-12"
+                  disabled={isLoading || isAiTyping}
                 />
               </div>
               <Button
-                onClick={handleSend}
+                type="submit"
                 className="bg-sky-500 hover:bg-sky-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 ease-in-out"
+                disabled={isLoading || isAiTyping}
               >
                 <Send size={24} />
               </Button>
+              <Button
+                onClick={handleDownload}
+                className="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 ease-in-out"
+                type="button"
+              >
+                <Download size={24} />
+              </Button>
             </div>
-          </div>
+          </form>
         </div>
-      </Container>
-    </div>
+      </Container >
+    </div >
   );
 }

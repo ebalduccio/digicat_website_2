@@ -28,7 +28,7 @@ export const NavItems = [
         label: 'Digicat',
         href: '/about',
         subItems: [
-            { label: 'Nossa Missão', href: '/about/mission', icon: Rocket },
+            { label: 'Nossa Missão', href: '/about/our-mission', icon: Rocket },
             { label: 'Nossa Equipe', href: '/about/team', icon: Users },
             { label: 'Consultoria Gratuita', href: '/about/free-consultation', icon: HelpCircle },
         ]

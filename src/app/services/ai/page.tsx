@@ -101,22 +101,24 @@ const AIServicePage: React.FC = () => {
 
   const BenefitCard: React.FC<{ benefit: Benefit }> = ({ benefit }) => {
     return (
-      <Card className="w-full md:w-96 bg-white/10 backdrop-blur-lg border-none flex flex-col justify-between p-6 rounded-3xl shadow-2xl">
-        <CardHeader className="flex flex-col items-center">
-          <div className="bg-gradient-to-br from-blue-400 to-purple-600 p-4 rounded-full mb-4">
-            {React.createElement(benefit.icon, { className: "w-8 h-8 text-white" })}
+      <Card className="w-full h-full bg-white/10 backdrop-blur-lg border-none flex flex-col p-6 rounded-3xl shadow-2xl">
+        <div className="flex-grow flex flex-col items-center justify-center mb-4">
+          <div className="bg-gradient-to-br from-blue-400 to-purple-600 p-6 rounded-full mb-4">
+            {React.createElement(benefit.icon, { className: "w-16 h-16 text-white" })}
           </div>
-          <CardTitle className="text-xl text-sky-100 mb-2 font-bold text-center">{benefit.title}</CardTitle>
-        </CardHeader>
-        <CardContent className="text-center">
-          <CardDescription className="text-sm text-sky-200 mb-4">{benefit.description}</CardDescription>
-          <div className="bg-white/5 rounded-xl p-3 mb-4">
-            <h4 className="text-sm font-semibold text-sky-300 mb-1">Impacto Comprovado</h4>
-            <p className="text-xs text-sky-100">{benefit.stats}</p>
-          </div>
-          <div className="bg-white/5 rounded-xl p-3">
-            <h4 className="text-sm font-semibold text-sky-300 mb-1">Caso de Sucesso</h4>
-            <p className="text-xs text-sky-100">{benefit.caseStudy}</p>
+          <CardTitle className="text-2xl text-sky-100 font-bold text-center">{benefit.title}</CardTitle>
+        </div>
+        <CardContent className="flex-shrink-0">
+          <CardDescription className="text-sm text-sky-200 mb-4 text-center">{benefit.description}</CardDescription>
+          <div className="space-y-4">
+            <div className="bg-white/5 rounded-xl p-3">
+              <h4 className="text-sm font-semibold text-sky-300 mb-1 text-center">Impacto Comprovado</h4>
+              <p className="text-xs text-sky-100 text-center">{benefit.stats}</p>
+            </div>
+            <div className="bg-white/5 rounded-xl p-3">
+              <h4 className="text-sm font-semibold text-sky-300 mb-1 text-center">Caso de Sucesso</h4>
+              <p className="text-xs text-sky-100 text-center">{benefit.caseStudy}</p>
+            </div>
           </div>
         </CardContent>
       </Card>
@@ -205,7 +207,7 @@ const AIServicePage: React.FC = () => {
             <h2 className="text-3xl font-semibold mb-8 text-sky-300">Como a IA Pode Transformar Sua Empresa</h2>
             <ul className="space-y-6">
               {transformations.map((item, index) => (
-                <motion.li 
+                <motion.li
                   key={index}
                   className="flex items-start space-x-4"
                   initial={{ opacity: 0, x: -20 }}
