@@ -99,6 +99,12 @@ const SoftwareDevelopmentPage: React.FC = () => {
         }, 100); // Pequeno delay para garantir que o componente foi renderizado
     };
 
+    const testimonials = [
+        { name: "Maria Silva", company: "TechInova", text: "A solução desenvolvida superou nossas expectativas. Nossos processos internos estão muito mais eficientes." },
+        { name: "João Santos", company: "DataFuture", text: "A equipe de desenvolvimento é extremamente competente e profissional. Recomendo fortemente." },
+        { name: "Ana Oliveira", company: "CloudSys", text: "O software personalizado nos permitiu escalar nosso negócio de forma que não imaginávamos ser possível." }
+    ];
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-gray-100 overflow-hidden relative">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzBBMEMxRCIvPgo8Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIwLjciIGZpbGw9IiMxRTI5M0IiLz4KPGNpcmNsZSBjeD0iMzAiIGN5PSIwIiByPSIwLjciIGZpbGw9IiMxRTI5M0IiLz4KPGNpcmNsZSBjeD0iMzAiIGN5PSI2MCIgcj0iMC43IiBmaWxsPSIjMUUyOTNCIi8+CjxjaXJjbGUgY3g9IjAiIGN5PSIzMCIgcj0iMC43IiBmaWxsPSIjMUUyOTNCIi8+CjxjaXJjbGUgY3g9IjYwIiBjeT0iMzAiIHI9IjAuNyIgZmlsbD0iIzFFMjkzQiIvPgo8L3N2Zz4=')] opacity-20" />
@@ -155,7 +161,7 @@ const SoftwareDevelopmentPage: React.FC = () => {
                                     </div>
                                 </CardContent>
                             </Card>
-                            <div  ref={selectedServiceRef}></div>
+                            <div ref={selectedServiceRef}></div>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -268,17 +274,13 @@ const SoftwareDevelopmentPage: React.FC = () => {
                         O Que Nossos Clientes Dizem
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {[
-                            { name: "Maria Silva", company: "TechInova", text: "A solução desenvolvida superou nossas expectativas. Nossos processos internos estão muito mais eficientes." },
-                            { name: "João Santos", company: "DataFuture", text: "A equipe de desenvolvimento é extremamente competente e profissional. Recomendo fortemente." },
-                            { name: "Ana Oliveira", company: "CloudSys", text: "O software personalizado nos permitiu escalar nosso negócio de forma que não imaginávamos ser possível." }
-                        ].map((testimonial, index) => (
+                        {testimonials.map((testimonial, index) => (
                             <motion.div
                                 key={index}
                                 whileHover={{ scale: 1.05, rotateY: 5 }}
                                 className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl border border-gray-700/50 rounded-lg p-6 shadow-lg"
                             >
-                                <p className="text-gray-300 italic mb-4">"{testimonial.text}"</p>
+                                <p className="text-gray-300 italic mb-4">&ldquo;{testimonial.text}&rdquo;</p>
                                 <div className="flex items-center">
                                     <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-xl font-bold text-white">
                                         {testimonial.name.charAt(0)}
