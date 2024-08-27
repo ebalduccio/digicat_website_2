@@ -1,32 +1,30 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Container } from "@/components/ui/container";
 import { CheckCircle, Star, ArrowRight, Zap, Settings, Smartphone, Code, PenTool, TrendingUp } from 'lucide-react';
-import Image from 'next/image';
-import PartnershipSection from '../(root)/components/Partners';
 
 const DigiCatLandingPage = () => {
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-    const services = [
+    const services = useMemo(() => [
         { name: 'UI/UX Design', description: 'Designs intuitivos que cativam seus usuários', icon: PenTool },
         { name: 'Desenvolvimento Web', description: 'Sites impressionantes com chatbots e integração social', icon: Code },
         { name: 'Software Personalizado', description: 'Sistemas que automatizam e potencializam sua equipe', icon: Settings },
         { name: 'Apps iOS e Android', description: 'Engaje seus clientes com apps nativos poderosos', icon: Smartphone },
         { name: 'Inteligência Artificial', description: 'Experiências personalizadas e automação inteligente', icon: Zap },
         { name: 'Marketing Digital', description: 'Aumente sua visibilidade e alcance novos clientes', icon: TrendingUp },
-    ];
+    ], []);
 
-    const testimonials = [
+    const testimonials = useMemo(() => [
         { name: 'João Silva', position: 'CEO Tech Solutions', content: 'A Digicat transformou completamente nosso processo de negócios. Vimos um aumento de 300% em nossas conversões online!', },
         { name: 'Maria Oliveira', position: 'CTO Inova Ltda', content: 'O aplicativo desenvolvido pela Digicat superou todas as nossas expectativas. Nossa base de usuários triplicou em apenas 3 meses!', },
         { name: 'Carlos Mendes', position: 'CMO Global Tech', content: 'A estratégia de marketing digital da Digicat nos colocou no mapa. Agora somos líderes de mercado em nosso segmento!' },
-    ];
+    ], []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -106,7 +104,7 @@ const DigiCatLandingPage = () => {
                                             <p className="text-sky-400">{testimonials[currentTestimonial].position}</p>
                                         </div>
                                     </div>
-                                    <p className="text-xl italic text-gray-300 mb-4">"{testimonials[currentTestimonial].content}"</p>
+                                    <p className="text-xl italic text-gray-300 mb-4">&apos;{testimonials[currentTestimonial].content}&apos;</p>
                                     <div className="flex justify-center">
                                         {testimonials.map((_, index) => (
                                             <button
