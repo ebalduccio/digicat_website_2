@@ -1,7 +1,7 @@
-'use client';
+'use client'
 
 import React, { useEffect, useState } from 'react';
-import { MenuIcon, X } from 'lucide-react';
+import { MenuIcon, X, MessageCircle } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -33,6 +33,9 @@ function Navbar() {
     !isTop ? 'backdrop-blur-md' : ''
   }`;
 
+  const whatsappNumber = "5571993020258"; // Replace with your actual WhatsApp number
+  const whatsappMessage = encodeURIComponent("Olá! Gostaria de saber mais sobre os seguintes serviços:");
+
   return (
     <>
       <div className={navbarClasses}>
@@ -50,13 +53,32 @@ function Navbar() {
               </Link>
               <nav className='hidden lg:flex text-white items-center space-x-8'>
                 <NavLinks />
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300"
+                >
+                  <MessageCircle size={20} className="mr-2" />
+                  WhatsApp
+                </a>
               </nav>
-              <button 
-                className='lg:hidden p-2 rounded-md text-white hover:bg-white/20 transition duration-200'
-                onClick={() => setOpen(!open)}
-              >
-                {open ? <X size={24} /> : <MenuIcon size={24} />}
-              </button>
+              <div className="flex items-center lg:hidden">
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mr-4 text-white"
+                >
+                  <MessageCircle size={24} />
+                </a>
+                <button 
+                  className='p-2 rounded-md text-white hover:bg-white/20 transition duration-200'
+                  onClick={() => setOpen(!open)}
+                >
+                  {open ? <X size={24} /> : <MenuIcon size={24} />}
+                </button>
+              </div>
             </div>
           </Container>
         </header>
@@ -89,6 +111,15 @@ function Navbar() {
               </div>
               <nav className="flex-grow p-4">
                 <NavLinksMobile />
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300 mt-4"
+                >
+                  <MessageCircle size={20} className="mr-2" />
+                  WhatsApp
+                </a>
               </nav>
             </div>
           </motion.div>

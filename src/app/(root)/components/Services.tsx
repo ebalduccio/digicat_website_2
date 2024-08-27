@@ -123,7 +123,7 @@ const TitleCard: React.FC = () => {
 
 const Services: React.FC = () => {
     return (
-        <section className="py-32 bg-gradient-to-l from-gray-900 to-sky-900">
+        <section className="py-32 bg-gradient-to-r from-gray-900 to-sky-900">
             <Container>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <TitleCard />

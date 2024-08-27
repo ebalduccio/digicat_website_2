@@ -1,28 +1,41 @@
+'use client'
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
-const PartnershipSection = () => {
+const PartnershipSection = ({ backgroundVideoUrl = '/videos/homevideo3.mp4' }) => {
     const partners = [
         { name: 'Google', logo: '/images/google-logo.webp', color: '#4285F4' },
         { name: 'Meta', logo: '/images/meta-logo.webp', color: '#0668E1' },
     ];
 
     return (
-        <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden">
-            <div className="container mx-auto px-4">
+        <section className="py-24 relative overflow-hidden">
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover z-0"
+            >
+                <source src={backgroundVideoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-sky-900 opacity-90 z-10"></div>
+            <div className="container mx-auto px-4 relative z-20">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-5xl font-extrabold text-gray-900 mb-4">
-                        Parcerias <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Estratégicas</span>
+                    <h2 className="text-5xl font-extrabold text-white mb-4">
+                        Parcerias <span className="text-transparent bg-clip-text bg-sky-500">Estratégicas</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-xl text-white max-w-2xl mx-auto">
                         Colaboramos com gigantes da tecnologia para impulsionar inovação
                     </p>
                 </motion.div>
@@ -75,13 +88,13 @@ const PartnershipSection = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
                 >
-                    <p className="text-xl text-gray-700 font-medium mb-6">
+                    <p className="text-xl text-white font-medium mb-6">
                         Conte com nossa expertise para alavancar seu negócio com tecnologias de ponta
                     </p>
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
+                        className="px-8 py-3 bg-sky-500 text-white font-semibold rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300"
                     >
                         Agende uma consultoria gratuita
                     </motion.button>
