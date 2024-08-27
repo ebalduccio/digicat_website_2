@@ -23,9 +23,9 @@ const DigiCatLandingPage = () => {
     ];
 
     const testimonials = [
-        { name: 'João Silva', position: 'CEO, Tech Solutions', content: 'A Digicat transformou completamente nosso processo de negócios. Vimos um aumento de 300% em nossas conversões online!', image: '/images/testimonial1.jpg' },
-        { name: 'Maria Oliveira', position: 'CTO, Inova Ltda', content: 'O aplicativo desenvolvido pela Digicat superou todas as nossas expectativas. Nossa base de usuários triplicou em apenas 3 meses!', image: '/images/testimonial2.jpg' },
-        { name: 'Carlos Mendes', position: 'CMO, Global Tech', content: 'A estratégia de marketing digital da Digicat nos colocou no mapa. Agora somos líderes de mercado em nosso segmento!', image: '/images/testimonial3.jpg' },
+        { name: 'João Silva', position: 'CEO Tech Solutions', content: 'A Digicat transformou completamente nosso processo de negócios. Vimos um aumento de 300% em nossas conversões online!', },
+        { name: 'Maria Oliveira', position: 'CTO Inova Ltda', content: 'O aplicativo desenvolvido pela Digicat superou todas as nossas expectativas. Nossa base de usuários triplicou em apenas 3 meses!', },
+        { name: 'Carlos Mendes', position: 'CMO Global Tech', content: 'A estratégia de marketing digital da Digicat nos colocou no mapa. Agora somos líderes de mercado em nosso segmento!' },
     ];
 
     useEffect(() => {
@@ -101,13 +101,6 @@ const DigiCatLandingPage = () => {
                                     className="bg-gray-800/50 backdrop-blur-lg p-8 rounded-lg"
                                 >
                                     <div className="flex items-center mb-6">
-                                        <Image
-                                            src={testimonials[currentTestimonial].image}
-                                            alt={testimonials[currentTestimonial].name}
-                                            width={80}
-                                            height={80}
-                                            className="rounded-full mr-4"
-                                        />
                                         <div>
                                             <h3 className="text-2xl font-semibold text-sky-200">{testimonials[currentTestimonial].name}</h3>
                                             <p className="text-sky-400">{testimonials[currentTestimonial].position}</p>
