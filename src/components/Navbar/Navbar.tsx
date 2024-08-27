@@ -40,7 +40,7 @@ function Navbar() {
     <>
       <div className={navbarClasses}>
         <div className="relative">
-          <div className="absolute top-0 left-0 h-full flex items-center pl-4">
+          <div className="absolute top-0 left-0 h-full flex items-center pl-6 lg:pl-14">
             <Link href={'/'} className='flex items-center'>
               <Image
                 src='/icons/WhiteLogo.svg'
@@ -54,16 +54,8 @@ function Navbar() {
             <nav className='hidden lg:flex text-white items-center justify-center'>
               <NavLinks />
             </nav>
-            <div className="lg:hidden">
-              <button
-                className='p-2 rounded-md text-white hover:bg-white/20 transition duration-200'
-                onClick={() => setOpen(!open)}
-              >
-                {open ? <X size={24} /> : <MenuIcon size={24} />}
-              </button>
-            </div>
           </Container>
-          <div className="absolute top-0 right-0 h-full flex items-center pr-4">
+          <div className="absolute top-0 right-0 h-full flex items-center pr-6 lg:pr-14">
             <Link
               href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
               target="_blank"
@@ -73,6 +65,12 @@ function Navbar() {
               <MessageCircle size={20} className="mr-2" />
               WhatsApp
             </Link>
+            <button
+              className='p-2 ml-4 rounded-md text-white hover:bg-white/20 transition duration-200 lg:hidden'
+              onClick={() => setOpen(!open)}
+            >
+              {open ? <X size={24} /> : <MenuIcon size={24} />}
+            </button>
           </div>
         </div>
       </div>
