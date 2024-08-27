@@ -29,59 +29,52 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navbarClasses = `sticky z-50 top-0 inset-x-0 h-24 transition-all duration-300 bg-gradient-to-r from-gray-900 to-sky-950 ${
+  const navbarClasses = `sticky z-50 top-0 inset-x-0 transition-all duration-300 bg-gradient-to-r from-gray-900 to-sky-950 ${
     !isTop ? 'backdrop-blur-md' : ''
   }`;
 
-  const whatsappNumber = "5571993020258"; // Replace with your actual WhatsApp number
+  const whatsappNumber = "5571993020258";
   const whatsappMessage = encodeURIComponent("Olá! Gostaria de saber mais sobre os seguintes serviços:");
 
   return (
     <>
       <div className={navbarClasses}>
-        <header className='relative h-20'>
-          <Container>
-            <div className='flex justify-between items-center h-24'>
-              <Link href={'/'} className='flex items-center'>
-                <Image
-                  src='/icons/WhiteLogo.svg'
-                  alt='Digicat logo'
-                  width={150}
-                  height={40}
-                  className="mr-4"
-                />
-              </Link>
-              <nav className='hidden lg:flex text-white items-center space-x-8'>
-                <NavLinks />
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300"
-                >
-                  <MessageCircle size={20} className="mr-2" />
-                  WhatsApp
-                </a>
-              </nav>
-              <div className="flex items-center lg:hidden">
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mr-4 text-white"
-                >
-                  <MessageCircle size={24} />
-                </a>
-                <button 
-                  className='p-2 rounded-md text-white hover:bg-white/20 transition duration-200'
-                  onClick={() => setOpen(!open)}
-                >
-                  {open ? <X size={24} /> : <MenuIcon size={24} />}
-                </button>
-              </div>
+        <div className="relative">
+          <div className="absolute top-0 left-0 h-full flex items-center pl-4">
+            <Link href={'/'} className='flex items-center'>
+              <Image
+                src='/icons/WhiteLogo.svg'
+                alt='Digicat logo'
+                width={150}
+                height={40}
+              />
+            </Link>
+          </div>
+          <Container className="flex justify-center items-center h-20">
+            <nav className='hidden lg:flex text-white items-center justify-center'>
+              <NavLinks />
+            </nav>
+            <div className="lg:hidden">
+              <button
+                className='p-2 rounded-md text-white hover:bg-white/20 transition duration-200'
+                onClick={() => setOpen(!open)}
+              >
+                {open ? <X size={24} /> : <MenuIcon size={24} />}
+              </button>
             </div>
           </Container>
-        </header>
+          <div className="absolute top-0 right-0 h-full flex items-center pr-4">
+            <Link
+              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:flex items-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300"
+            >
+              <MessageCircle size={20} className="mr-2" />
+              WhatsApp
+            </Link>
+          </div>
+        </div>
       </div>
 
       {/* Mobile Nav */}
@@ -102,7 +95,7 @@ function Navbar() {
                   width={120}
                   height={30}
                 />
-                <button 
+                <button
                   className='p-2 rounded-md text-white hover:bg-white/20 transition duration-200'
                   onClick={() => setOpen(false)}
                 >
@@ -111,7 +104,7 @@ function Navbar() {
               </div>
               <nav className="flex-grow p-4">
                 <NavLinksMobile />
-                <a
+                <Link
                   href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -119,13 +112,13 @@ function Navbar() {
                 >
                   <MessageCircle size={20} className="mr-2" />
                   WhatsApp
-                </a>
+                </Link>
               </nav>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-      
+
       {/* Overlay for mobile nav */}
       {open && (
         <motion.div
