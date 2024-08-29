@@ -25,13 +25,6 @@ const MarketingLandingPage = () => {
         { name: 'Maria Santos', position: 'Gerente de Marketing', content: 'A abordagem científica do marketing digital transformou completamente nossa presença online. Nosso ROI nunca foi tão alto!' },
     ], []);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-        }, 5000);
-        return () => clearInterval(interval);
-    }, [testimonials.length]);
-
     return (
         <div className="bg-gradient-to-b from-gray-950 via-sky-900 to-sky-950 min-h-screen text-gray-100">
             <Container>
@@ -43,15 +36,24 @@ const MarketingLandingPage = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                         >
-                            Quanto dinheiro você está deixando na mesa por uma falta de presença online?
-                        </motion.h1>
+                            Pare de Perder Dinheiro com Anúncios Genéricos: transforme cliques em clientes.
+                            </motion.h1>
                         <motion.p
                             className="text-xl md:text-2xl text-sky-200 font-thin mb-8"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            Sua empresa investe em tráfego pago, mas não consegue gerar leads qualificados? Está cansado de gastar dinheiro em campanhas que não trazem o retorno esperado? Tem dificuldades em entender por que seus anúncios não convertem como deveriam?
+                            Você investe em tráfego pago, mas não consegue gerar leads qualificados? Está cansado de desperdiçar dinheiro em campanhas que não trazem retorno? Se sim, você não está sozinho.
+                            </motion.p>
+                        <motion.p
+                            className="text-xl md:text-2xl text-sky-200 font-thin mb-8"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                        >
+                            A boa notícia? Estamos prontos para mudar isso.
+                            
                         </motion.p>
                         <motion.p
                             className="text-xl md:text-2xl text-sky-200 font-thin mb-8"
@@ -59,7 +61,8 @@ const MarketingLandingPage = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                         >
-                            Se você se identifica com alguma dessas situações, saiba que não está sozinho. A boa notícia é que você já deu um passo importante apenas por estar aqui, considerando uma nova abordagem para mudar o rumo do seu negócio.
+                            
+                            Imagine direcionar cada centavo investido para clientes que realmente querem o que você tem a oferecer! Nossa estratégia personalizada garante que suas campanhas falem diretamente ao cliente ideal, no lugar certo e no momento exato.
                         </motion.p>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
