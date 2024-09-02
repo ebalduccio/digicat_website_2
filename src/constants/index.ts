@@ -14,34 +14,34 @@ export const NavItems = [
             { label: 'SEO e Otimização', href: '/services/seo', icon: Search },
         ]
     },
-    {
-        label: 'Portfólio',
-        href: '/portfolio',
-        subItems: [
-            {label: 'Cases', href: '/portfolio/cases', icon: Briefcase},
-            {label: 'Projetos Recentes', href: '/portfolio/projects', icon: Clock},
-            {label: 'Depoimentos', href: '/portfolio/testmonies', icon: MessageSquare},
-            {label: 'Estudos de Caso', href: '/portfolio/case-study', icon: FileText}
-        ]
-    },
+    // {
+    //     label: 'Portfólio',
+    //     href: '/portfolio',
+    //     subItems: [
+    //         {label: 'Cases', href: '/portfolio/cases', icon: Briefcase},
+    //         {label: 'Projetos Recentes', href: '/portfolio/projects', icon: Clock},
+    //         {label: 'Depoimentos', href: '/portfolio/testmonies', icon: MessageSquare},
+    //         {label: 'Estudos de Caso', href: '/portfolio/case-study', icon: FileText}
+    //     ]
+    // },
     {
         label: 'Digicat',
         href: '/about',
         subItems: [
             { label: 'Nossa Missão', href: '/about/our-mission', icon: Rocket },
-            { label: 'Nossa Equipe', href: '/about/team', icon: Users },
-            { label: 'Consultoria Gratuita', href: '/about/free-consultation', icon: HelpCircle },
+            // { label: 'Nossa Equipe', href: '/about/team', icon: Users },
+            // { label: 'Consultoria Gratuita', href: '/about/free-consultation', icon: HelpCircle },
         ]
     },
-    {
-        label: 'Recursos',
-        href: '/resource',
-        subItems: [
-            { label: 'Blog', href: '/resource/blog', icon: Newspaper },
-            { label: 'Como Fazemos', href: '/about/how-we-do', icon: BookOpen },
-            { label: 'Tutoriais', href: '/about/tutorials', icon: Video },
-        ]
-    },
+    // {
+    //     label: 'Recursos',
+    //     href: '/resource',
+    //     subItems: [
+    //         { label: 'Blog', href: '/resource/blog', icon: Newspaper },
+    //         { label: 'Como Fazemos', href: '/about/how-we-do', icon: BookOpen },
+    //         { label: 'Tutoriais', href: '/about/tutorials', icon: Video },
+    //     ]
+    // },
     {
         label: 'Fale Conosco',
         href: '/contact'

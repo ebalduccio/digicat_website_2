@@ -31,15 +31,15 @@ const MarketingLandingPage = () => {
                 <div className="py-24 flex flex-col md:flex-row items-center gap-14 justify-between">
                     <div className="md:w-1/2 mb-12 md:mb-0">
                         <motion.h1
-                            className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-600"
+                            className="text-4xl mb-6 text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-600"
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                         >
-                            Pare de Perder Dinheiro com Anúncios Genéricos: transforme cliques em clientes.
+                            Pare de perder dinheiro com anúncios genéricos: <span className='font-bold'>transforme cliques em clientes.</span>
                             </motion.h1>
                         <motion.p
-                            className="text-xl md:text-2xl text-sky-200 font-thin mb-8"
+                            className="text-xl text-sky-200 font-thin mb-8"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}

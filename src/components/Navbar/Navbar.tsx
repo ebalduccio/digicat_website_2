@@ -51,7 +51,7 @@ function Navbar() {
             </Link>
           </div>
           <Container className="flex justify-center items-center h-20">
-            <nav className='hidden lg:flex text-white items-center justify-center'>
+            <nav className='hidden lg:flex gap-6 text-white items-center justify-center'>
               <NavLinks />
             </nav>
           </Container>
