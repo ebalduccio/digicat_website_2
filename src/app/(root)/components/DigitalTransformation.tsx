@@ -73,7 +73,7 @@ const DigitalTransformation: React.FC = () => {
                             <BenefitItem key={index} text={item.text} icon={item.icon} index={index} />
                         ))}
                     </ul>
-                    <motion.div
+                    {/* <motion.div
                         className="text-center"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -84,7 +84,7 @@ const DigitalTransformation: React.FC = () => {
                         >
                             RECEBER UMA ANÁLISE GRATUITA
                         </Button>
-                    </motion.div>
+                    </motion.div> */}
                 </motion.div>
             </Container>
         </section>
