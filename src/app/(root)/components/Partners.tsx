@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const PartnershipSection = ({ backgroundVideoUrl = '/videos/homevideo3.mp4' }) => {
     const partners = [
@@ -39,7 +40,7 @@ const PartnershipSection = ({ backgroundVideoUrl = '/videos/homevideo3.mp4' }) =
                         Colaboramos com gigantes da tecnologia para impulsionar inovação
                     </p>
                 </motion.div>
-                
+
                 <div className="flex flex-col md:flex-row justify-center items-center gap-8">
                     {partners.map((partner, index) => (
                         <motion.div
@@ -52,11 +53,11 @@ const PartnershipSection = ({ backgroundVideoUrl = '/videos/homevideo3.mp4' }) =
                             <Card className="overflow-hidden group">
                                 <CardContent className="p-0">
                                     <div className="relative h-64 bg-gradient-to-br from-white to-gray-100">
-                                        <div 
+                                        <div
                                             className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300"
                                             style={{ backgroundColor: partner.color }}
                                         ></div>
-                                        <Image 
+                                        <Image
                                             src={partner.logo}
                                             alt={partner.name}
                                             layout="fill"
@@ -67,38 +68,22 @@ const PartnershipSection = ({ backgroundVideoUrl = '/videos/homevideo3.mp4' }) =
                                     <div className="p-6">
                                         <h3 className="text-2xl font-bold mb-2">{partner.name} Partner</h3>
                                         <p className="text-gray-600 mb-4">Certificados e especializados em soluções {partner.name}</p>
-                                        <motion.button
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            className="flex items-center text-blue-600 font-semibold group"
-                                        >
-                                            Explorar soluções
-                                            <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                                        </motion.button>
+                                        <Link href={'/services/marketing'}>
+                                            <motion.button
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                className="flex items-center text-blue-600 font-semibold group"
+                                            >
+                                                Explorar soluções
+                                                <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                                            </motion.button>
+                                        </Link>
                                     </div>
                                 </CardContent>
                             </Card>
                         </motion.div>
                     ))}
                 </div>
-                
-                <motion.div
-                    className="text-center mt-16"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                >
-                    <p className="text-xl text-white font-medium mb-6">
-                        Conte com nossa expertise para alavancar seu negócio com tecnologias de ponta
-                    </p>
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-8 py-3 bg-sky-500 text-white font-semibold rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300"
-                    >
-                        Agende uma consultoria gratuita
-                    </motion.button>
-                </motion.div>
             </div>
         </section>
     );

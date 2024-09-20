@@ -98,13 +98,13 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <Button
+            {/* <Button
               size="lg"
               className="bg-sky-500 hover:bg-sky-600 text-white font-bold px-6 py-4 mt-4 rounded-md text-sm transition-all duration-300 tracking-wider"
             >
               QUERO ACELERAR MEU NEGÓCIO
               <ArrowRight className="ml-2" />
-            </Button>
+            </Button> */}
           </motion.div>
         </div>
       </Container>

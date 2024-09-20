@@ -46,14 +46,16 @@ const MarketingPage = () => {
                         variants={fadeIn}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        <Button
-                            size="lg"
-                            className="bg-sky-500 hover:bg-sky-600 text-white px-8 py-7 rounded-md text-md transition-all duration-300
+                        <Link href={'/chat'}>
+                            <Button
+                                size="lg"
+                                className="bg-sky-500 hover:bg-sky-600 text-white px-8 py-7 rounded-md text-md transition-all duration-300
          shadow-[0_0_20px_5px_rgba(56,189,248,0.6)] hover:shadow-[0_0_30px_10px_rgba(56,189,248,0.8)]"
-                        >
-                            ACELERE SEU CRESCIMENTO DIGITAL AGORA
-                            <ArrowRight className="ml-2" />
-                        </Button>
+                            >
+                                ACELERE SEU CRESCIMENTO DIGITAL AGORA
+                                <ArrowRight className="ml-2" />
+                            </Button>
+                        </Link>
                     </motion.div>
                 </header>
 
