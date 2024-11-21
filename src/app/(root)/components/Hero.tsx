@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [text, setText] = useState<string>('');
@@ -57,9 +57,10 @@ const Hero: React.FC = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+      {/* Video Background with Enhanced Overlay */}
+      <div className="absolute inset-0">
         <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover scale-105"
           style={{ transform: 'scaleX(-1)' }}
           autoPlay
           loop
@@ -69,45 +70,139 @@ const Hero: React.FC = () => {
           <source src="/videos/homevideo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/90 to-sky-900/80" />
+
+        {/* Animated Grid Pattern */}
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px'
+          }}
+        />
       </div>
-      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-60" />
-      <Container className="relative z-10 min-h-screen flex items-center justify-start">
-        <div className="text-white text-left max-w-xl">
-          <div className='mb-14'>
-            <motion.h2
-              className="text-6xl leading-[70px]"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              Acelere o <span className='font-bold'>crescimento</span> da sua empresa com...
-            </motion.h2>
-            <motion.div
-              className="text-4xl font-semibold h-20 leading-[70px] relative tracking-wide"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <span className="bg-gradient-to-r from-sky-300 via-sky-400 to-green-500 text-transparent bg-clip-text">
-                {text}
-              </span>
-            </motion.div>
-          </div>
+
+      <Container className="relative z-10 min-h-screen flex items-center">
+        <div className="w-full max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
           >
-            {/* <Button
-              size="lg"
-              className="bg-sky-500 hover:bg-sky-600 text-white font-bold px-6 py-4 mt-4 rounded-md text-sm transition-all duration-300 tracking-wider"
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="inline-block"
             >
-              QUERO ACELERAR MEU NEGÓCIO
-              <ArrowRight className="ml-2" />
-            </Button> */}
+              <span className="bg-gradient-to-r from-sky-400/10 to-blue-400/10 text-sky-400 text-sm font-medium px-4 py-2 rounded-full">
+                Soluções Digitais
+              </span>
+            </motion.div>
+
+            {/* Main Heading */}
+            <div className="space-y-4">
+              <motion.h1
+                className="text-6xl font-bold leading-[1.2] text-white"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                Acelere o{' '}
+                <span className="relative inline-block">
+                  crescimento
+                  <motion.span
+                    className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-sky-400 to-blue-500"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ delay: 1, duration: 0.8 }}
+                  />
+                </span>
+                {' '}da sua empresa com...
+              </motion.h1>
+
+              {/* Typing Effect */}
+              <motion.div
+                className="h-20 flex items-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+              >
+                <h2 className="text-4xl font-bold">
+                  <span className="bg-gradient-to-r from-sky-400 via-blue-500 to-purple-600 text-transparent bg-clip-text">
+                    {text}
+                  </span>
+                  <motion.span
+                    animate={{ opacity: [1, 0] }}
+                    transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
+                    className="inline-block w-0.5 h-8 bg-sky-400 ml-1"
+                  />
+                </h2>
+              </motion.div>
+            </div>
+
+            {/* Description */}
+            <motion.p
+              className="text-xl text-gray-400 max-w-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+            >
+              Transforme sua presença digital e alcance resultados extraordinários com nossas soluções personalizadas.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              className="flex flex-wrap gap-4 pt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+            >
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-bold px-8 py-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-sky-500/25 group"
+              >
+                <span className="flex items-center gap-2">
+                  QUERO ACELERAR MEU NEGÓCIO
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </Button>
+
+              <Button
+                size="lg"
+                variant="ghost"
+                className="text-white border border-white/20 hover:bg-white/10 font-medium px-8 py-6 rounded-xl group"
+              >
+                <span className="flex items-center gap-2">
+                  Conheça nosso trabalho
+                  <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
+                </span>
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </Container>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 0.8 }}
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2"
+        >
+          <motion.div className="w-1 h-1.5 rounded-full bg-white/50" />
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

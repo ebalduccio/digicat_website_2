@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Palette, Smartphone, Zap, TrendingUp, Users, Shield, BarChart3, LucideIcon, ArrowRight, CheckCircle } from "lucide-react";
+import Link from 'next/link';
 
 interface DesignService {
     icon: LucideIcon;
@@ -86,7 +87,7 @@ const DesignServicesPage: React.FC = () => {
         <div className="min-h-screen bg-[#050508] text-gray-100 overflow-hidden relative">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-blue-900/10 to-pink-800/10" />
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzAwMDAwMCIgZmlsbC1vcGFjaXR5PSIwLjM1Ii8+CjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjEiIGZpbGw9IiNGRkZGRkYiIGZpbGwtb3BhY2l0eT0iMC4xNSIvPgo8L3N2Zz4=')] opacity-10" />
-            
+
             <Container className="relative py-20 md:py-32">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -116,7 +117,7 @@ const DesignServicesPage: React.FC = () => {
                             whileHover={{ scale: 1.05, rotateY: 5 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <Card 
+                            <Card
                                 className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-xl border border-gray-700/50 text-gray-100 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20"
                                 onClick={() => setSelectedService(service)}
                             >
@@ -155,8 +156,8 @@ const DesignServicesPage: React.FC = () => {
                                     <p className="text-xl mb-6 text-gray-300">{selectedService.description}</p>
                                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         {selectedService.details.map((detail, index) => (
-                                            <motion.li 
-                                                key={index} 
+                                            <motion.li
+                                                key={index}
                                                 className="flex items-center"
                                                 initial={{ opacity: 0, x: -20 }}
                                                 animate={{ opacity: 1, x: 0 }}
@@ -222,10 +223,12 @@ const DesignServicesPage: React.FC = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xl px-12 py-6 rounded-full transition-all duration-300 ease-in-out shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40">
-                            Iniciar Revolução Digital
-                            <ArrowRight className="ml-2 h-6 w-6" />
-                        </Button>
+                        <Link href={'/chat'}>
+                            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xl px-12 py-6 rounded-full transition-all duration-300 ease-in-out shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40">
+                                Iniciar Revolução Digital
+                                <ArrowRight className="ml-2 h-6 w-6" />
+                            </Button>
+                        </Link>
                     </motion.div>
                 </motion.div>
             </Container>

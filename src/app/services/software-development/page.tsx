@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Code, Database, Cloud, Zap, Lock, Phone, Cpu, BarChart, LucideIcon, ArrowRight, CheckCircle } from "lucide-react";
+import Link from 'next/link';
 
 interface Service {
     icon: LucideIcon;
@@ -339,10 +340,12 @@ const SoftwareDevelopmentPage: React.FC = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <Button size="lg" className="bg-sky-500 text-white text-xl px-12 py-6 rounded-md transition-all duration-300 ease-in-out shadow-lg shadow-cyan-500/25 hover:shadow-xl hover:shadow-cyan-500/40">
-                            Solicite uma Consulta Gratuita
-                            <ArrowRight className="ml-2 h-6 w-6" />
-                        </Button>
+                        <Link href={'/chat'}>
+                            <Button size="lg" className="bg-sky-500 text-white text-xl px-12 py-6 rounded-md transition-all duration-300 ease-in-out shadow-lg shadow-cyan-500/25 hover:shadow-xl hover:shadow-cyan-500/40">
+                                Solicite uma Consulta Gratuita
+                                <ArrowRight className="ml-2 h-6 w-6" />
+                            </Button>
+                        </Link>
                     </motion.div>
                 </motion.div>
             </Container>
