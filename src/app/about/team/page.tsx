@@ -357,25 +357,6 @@ export default function About() {
                                     ))}
                                 </div>
                             </div>
-
-                            <AnimatedSection className="mt-16">
-                                <div className="bg-red-950/30 backdrop-blur-sm rounded-xl p-8 border border-red-500/20">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                                        <div>
-                                            <h3 className="text-2xl font-bold text-red-400 mb-4">Para onde está indo o Futuro Dos Negócios?</h3>
-                                            <p className="text-xl text-gray-300 leading-relaxed">
-                                                Com as vendas online superando os US$ 7 trilhões até 2025, muitas empresas ficarão para trás. Você será uma delas?
-                                            </p>
-                                        </div>
-                                        <div className="text-center">
-                                            <div className="text-5xl font-bold text-red-400 mb-2">40%</div>
-                                            <p className="text-lg text-gray-300">
-                                                das empresas no Brasil fecham em 5 anos por má gestão e ausência de planejamento.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </AnimatedSection>
                         </div>
                     </Container>
                 </section>
