@@ -3,7 +3,7 @@ interface CardAboutProps {
     content: string
 }
 
-interface TextProps {
+export interface TextProps {
     content: string
 }
 
