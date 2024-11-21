@@ -1,3 +1,4 @@
+import { TextProps } from '@/interfaces'
 import React from 'react'
 
 const TealText = ({ content }: TextProps) => {
