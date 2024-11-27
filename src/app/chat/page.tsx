@@ -95,7 +95,7 @@ export default function OrcamentoPage(): JSX.Element {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://192.168.1.8:5001/chat', {
+      const response = await fetch('https://api.digicat.com.br/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
