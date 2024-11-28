@@ -140,7 +140,7 @@ export default function OrcamentoPage(): JSX.Element {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-sky-100 to-white flex flex-col">
+    <div className="min-h-screen bg-gradient-to-b from-sky-100 to-white flex flex-col pt-28 lg:pt-36">
       <Container className="flex-grow flex flex-col py-8">
         <h1 className="text-4xl font-bold text-sky-900 mb-8 text-center">Vamos Conversar Sobre Seu Projeto!</h1>
         <p className="text-sm text-gray-500 mb-8 text-center max-w-3xl mx-auto">
