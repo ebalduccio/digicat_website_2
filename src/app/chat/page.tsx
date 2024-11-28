@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Send, User, Download } from "lucide-react";
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -25,6 +26,7 @@ export default function OrcamentoPage(): JSX.Element {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const initialMessageSent = useRef<boolean>(false);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     setUserId(`user_${Math.random().toString(36).substr(2, 9)}`);
@@ -95,6 +97,9 @@ export default function OrcamentoPage(): JSX.Element {
     setIsLoading(true);
 
     try {
+      // Get the client from URL parameters or default to 'digicat'
+      const clientParam = searchParams.get('client') || 'digicat';
+
       const response = await fetch('https://api.digicat.com.br/chat', {
         method: 'POST',
         headers: {
@@ -103,7 +108,7 @@ export default function OrcamentoPage(): JSX.Element {
         body: JSON.stringify({
           user_id: userId,
           message: input,
-          company_id: 'digicat',
+          company_id: clientParam,
         }),
       });
 
@@ -213,7 +218,7 @@ export default function OrcamentoPage(): JSX.Element {
             </div>
           </form>
         </div>
-      </Container >
-    </div >
+      </Container>
+    </div>
   );
 }
