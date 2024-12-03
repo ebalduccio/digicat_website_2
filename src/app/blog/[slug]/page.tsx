@@ -87,7 +87,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     <Image
                         src={post.image}
                         alt={post.title}
-                        fill
+                        layout="fill"
                         className="object-cover"
                         priority
                     />
