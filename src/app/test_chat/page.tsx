@@ -35,7 +35,7 @@ export default function OrcamentoPage(): JSX.Element {
     if (!initialMessageSent.current) {
       addMessageWithTypingEffect({
         role: 'assistant',
-        content: "Olá! Meu nome é Cabelinho! Sou o atendente da Extension Hair. Deseja saber sobre os nossos produtos?"
+        content: "Olá! Meu nome é Cabelinho! Sou a atendente da Extension Hair. Como posso ajudar?"
       });
       initialMessageSent.current = true;
     }
