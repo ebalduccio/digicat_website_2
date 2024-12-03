@@ -68,7 +68,7 @@ export function BlogCard({ post, isFeature = false }: BlogCardProps) {
                     <Image
                         src={post.image}
                         alt={post.title}
-                        fill
+                        layout="fill"
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                         priority
                     />
