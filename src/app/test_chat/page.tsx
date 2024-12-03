@@ -3,9 +3,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { Send, User, Download } from "lucide-react";
-import Image from 'next/image';
+import { Send, User, Download } from 'lucide-react';
+import Image from "next/legacy/image";
 import { useSearchParams } from 'next/navigation';
+import DOMPurify from 'dompurify';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -23,7 +24,7 @@ export default function OrcamentoPage(): JSX.Element {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [userId, setUserId] = useState<string>('');
   const [isAiTyping, setIsAiTyping] = useState<boolean>(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const initialMessageSent = useRef<boolean>(false);
   const searchParams = useSearchParams();
@@ -34,29 +35,48 @@ export default function OrcamentoPage(): JSX.Element {
     if (!initialMessageSent.current) {
       addMessageWithTypingEffect({
         role: 'assistant',
-        content: "Olá! Meu nome é Digiquinho! Sou o analista de projetos da Digicat. Em que posso lhe ajudar?"
+        content: "Olá! Meu nome é Cabelinho! Sou o atendente da Extension Hair. Deseja saber sobre os nossos produtos?"
       });
       initialMessageSent.current = true;
     }
   }, []);
 
-  const scrollToBottom = (): void => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToBottom = (smooth: boolean = true): void => {
+    if (chatContainerRef.current) {
+      const scrollOptions: ScrollToOptions = {
+        top: chatContainerRef.current.scrollHeight,
+        behavior: smooth ? 'smooth' : 'auto',
+      };
+      chatContainerRef.current.scrollTo(scrollOptions);
+    }
   };
 
-  useEffect(scrollToBottom, [messages]);
+  useEffect(() => {
+    if (messages.length > 0) {
+      if (isAiTyping) {
+        scrollToBottom(false);
+      } else {
+        scrollToBottom();
+      }
+    }
+  }, [messages, isAiTyping]);
 
-  const processText = (text: string): JSX.Element => {
-    const parts = text.split(/(\*\*.*?\*\*)/g);
+  const processText = (text: string, role: 'user' | 'assistant'): JSX.Element => {
+    // First sanitize the HTML content
+    const sanitizedHtml = DOMPurify.sanitize(text, {
+      ALLOWED_TAGS: ['strong', 'ul', 'li', 'p', 'br', 'em'],
+      ALLOWED_ATTR: [] // No attributes allowed for security
+    });
+
+    const className = role === 'user' 
+      ? "prose prose-sm max-w-none text-white"
+      : "prose prose-sm max-w-none text-gray-800";
+
     return (
-      <>
-        {parts.map((part, index) => {
-          if (part.startsWith('**') && part.endsWith('**')) {
-            return <strong key={index}>{part.slice(2, -2)}</strong>;
-          }
-          return part;
-        })}
-      </>
+      <div
+        dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+        className={className}
+      />
     );
   };
 
@@ -97,7 +117,6 @@ export default function OrcamentoPage(): JSX.Element {
     setIsLoading(true);
 
     try {
-      // Get the client from URL parameters or default to 'digicat'
       const clientParam = searchParams.get('client') || 'digicat';
 
       const response = await fetch('https://api.digicat.com.br/chat', {
@@ -142,13 +161,17 @@ export default function OrcamentoPage(): JSX.Element {
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-100 to-white flex flex-col pt-28 lg:pt-36">
       <Container className="flex-grow flex flex-col py-8">
-        <h1 className="text-4xl font-bold text-sky-900 mb-8 text-center">Vamos Conversar Sobre Seu Projeto!</h1>
+        <h1 className="text-4xl font-bold text-sky-900 mb-8 text-center">Bem-vindo à Extension Hair!</h1>
         <p className="text-sm text-gray-500 mb-8 text-center max-w-3xl mx-auto">
           Você será atendido por nossa inteligência artificial avançada, projetada para oferecer respostas rápidas e precisas.
           Um de nossos especialistas revisará a conversa em breve para garantir o melhor atendimento possível.
         </p>
         <div className="flex-grow bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col">
-          <div className="flex-grow overflow-y-auto p-6 space-y-6">
+          <div 
+            ref={chatContainerRef}
+            className="flex-grow overflow-y-auto p-6 space-y-6"
+            style={{ maxHeight: 'calc(100vh - 400px)' }}
+          >
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -164,7 +187,7 @@ export default function OrcamentoPage(): JSX.Element {
                     ) : (
                       <div className="relative w-full h-full">
                         <Image
-                          src='/images/digiquinho.png'
+                          src='/images/cabelinho.png'
                           alt='digiquinho'
                           layout="fill"
                           objectFit="cover"
@@ -178,7 +201,7 @@ export default function OrcamentoPage(): JSX.Element {
                       : 'bg-gray-100 text-gray-800'
                       }`}
                   >
-                    {processText(message.content)}
+                    {processText(message.content, message.role)}
                     {message.isTyping && (
                       <span className="inline-block ml-1 animate-pulse">...</span>
                     )}
@@ -186,7 +209,6 @@ export default function OrcamentoPage(): JSX.Element {
                 </div>
               </div>
             ))}
-            <div ref={messagesEndRef} />
           </div>
           <form onSubmit={handleSend} className="border-t p-4 bg-gray-50">
             <div className="max-w-4xl mx-auto flex items-center space-x-4">
@@ -222,3 +244,4 @@ export default function OrcamentoPage(): JSX.Element {
     </div>
   );
 }
+

@@ -76,7 +76,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
+    (<Card className="w-full max-w-md mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl font-bold text-sky-900">Entre em Contato</CardTitle>
       </CardHeader>
@@ -154,7 +154,7 @@ const ContactForm: React.FC = () => {
           </motion.div>
         </form>
       </CardContent>
-    </Card>
+    </Card>)
   );
 };
 

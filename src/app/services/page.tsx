@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react';
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Container } from "@/components/ui/container";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

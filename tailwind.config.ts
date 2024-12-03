@@ -77,7 +77,10 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+  ],
   safelist: [
     {
       pattern: /(bg|text|border)-(sky|blue|green|orange|red|purple)-(50|100|200|500|800)/,

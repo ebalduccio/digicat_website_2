@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef, useState } from 'react';
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
@@ -181,9 +181,9 @@ export default function About() {
                                         <Image
                                             src="/images/digigatos.jpg"
                                             alt="Nossa Equipe"
-                                            fill
-                                            style={{ objectFit: 'cover' }}
-                                            className="scale-110 hover:scale-105 transition-transform duration-500"
+                                            width={600}
+                                            height={800}
+                                            className="scale-110 hover:scale-105 transition-transform duration-500 -translate-y-20"
                                         />
                                     </div>
                                     <div className="absolute inset-0 rounded-full border-4 border-sky-400/20 animate-pulse"></div>
@@ -224,7 +224,7 @@ export default function About() {
                                         <Image
                                             src="/images/AboutImage2.png"
                                             alt="Nossa História"
-                                            fill
+                                            layout="fill"
                                             style={{ objectFit: 'cover' }}
                                             className="scale-105 hover:scale-100 transition-transform duration-700"
                                         />

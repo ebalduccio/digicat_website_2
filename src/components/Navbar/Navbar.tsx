@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { MenuIcon, X, MessageCircle, ArrowUpRight } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import NavLinks from './NavLinks';

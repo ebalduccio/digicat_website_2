@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Container } from "@/components/ui/container";
 import { CheckCircle, ArrowRight, Zap, Smartphone, PenTool, TrendingUp, Target, Clock, BarChart, Users, DollarSign, Award } from 'lucide-react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 const ShiningImageBackground = React.memo(({ children }: { children: ReactNode }) => (
     <div className="relative group">

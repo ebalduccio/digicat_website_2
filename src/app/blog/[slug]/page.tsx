@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { Metadata } from 'next';
 import { Badge } from '@/components/ui/badge';
 import { CalendarIcon, ClockIcon } from 'lucide-react';

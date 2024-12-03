@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { ArrowRight, Shield, Award, Zap } from 'lucide-react';
 import Link from 'next/link';
 

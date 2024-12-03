@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRightIcon, CalendarIcon, ClockIcon } from 'lucide-react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import { MetaInfo } from './meta-info';
 import { BlogPost } from '@/interfaces';

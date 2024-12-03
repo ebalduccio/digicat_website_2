@@ -1,7 +1,7 @@
 import React from 'react'
 import { cn } from '@/lib/utils';
 
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 import Link from 'next/link';
 
