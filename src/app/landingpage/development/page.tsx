@@ -256,7 +256,6 @@ const DevelopmentLandingPage = () => {
                                     <ImageWithFallback
                                         src='/images/rocket.png'
                                         alt='Porta se abrindo para um futuro brilhante'
-                                        layout='fill'
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         style={{ objectFit: 'cover' }}
                                         className="rounded-lg"
