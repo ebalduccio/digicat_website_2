@@ -105,7 +105,7 @@ const DevelopmentLandingPage = () => {
                                     <Image
                                         src='/images/futuredoor.png'
                                         alt='Porta se abrindo para um futuro brilhante'
-                                        fill
+                                        layout="fill"
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         style={{ objectFit: 'cover' }}
                                         className="rounded-lg"
@@ -152,7 +152,7 @@ const DevelopmentLandingPage = () => {
                                     <Image
                                         src='/images/aitime.png'
                                         alt='Automação de tarefas'
-                                        fill
+                                        layout='fill'
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         style={{ objectFit: 'cover' }}
                                         className="rounded-lg"
@@ -256,7 +256,7 @@ const DevelopmentLandingPage = () => {
                                     <ImageWithFallback
                                         src='/images/rocket.png'
                                         alt='Porta se abrindo para um futuro brilhante'
-                                        fill
+                                        layout='fill'
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         style={{ objectFit: 'cover' }}
                                         className="rounded-lg"
@@ -303,7 +303,7 @@ const DevelopmentLandingPage = () => {
                                     <Image
                                         src='/images/buttonpress.png'
                                         alt='Implementação fácil de automação'
-                                        fill
+                                        layout='fill'
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                         style={{ objectFit: 'cover' }}
                                         className="rounded-lg"

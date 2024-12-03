@@ -80,7 +80,7 @@ const MarketingLandingPage = () => {
                                 <Image
                                     src='/images/marketing-strategy.jpg'
                                     alt='Estratégia de Marketing Digital'
-                                    fill
+                                    layout='fill'
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                     style={{ objectFit: 'cover' }}
                                     className="rounded-lg"
