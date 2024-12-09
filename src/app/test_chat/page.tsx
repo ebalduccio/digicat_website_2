@@ -48,7 +48,7 @@ export default function ChatPage(): JSX.Element {
     // Fetch company and assistant information from the API
     const fetchCompanyInfo = async () => {
       try {
-        const response = await fetch(`http://localhost:5001/company-info?client=${clientParam}`, {
+        const response = await fetch(`https://api.digicat.com.br/company-info?client=${clientParam}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ export default function ChatPage(): JSX.Element {
     try {
       const clientParam = searchParams.get('client') || 'digicat';
 
-      const response = await fetch('http://localhost:5001/chat', {
+      const response = await fetch('https://api.digicat.com.br/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
