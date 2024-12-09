@@ -18,28 +18,69 @@ interface ApiResponse {
   reply: string;
 }
 
-export default function OrcamentoPage(): JSX.Element {
+interface CompanyInfo {
+  name: string;
+  assistant: {
+    name: string;
+    imageName: string;
+  };
+}
+
+export default function ChatPage(): JSX.Element {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [userId, setUserId] = useState<string>('');
   const [isAiTyping, setIsAiTyping] = useState<boolean>(false);
+  const [companyInfo, setCompanyInfo] = useState<CompanyInfo>({
+    name: '',
+    assistant: { name: '', imageName: '' }
+  });
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const initialMessageSent = useRef<boolean>(false);
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    const clientParam = searchParams.get('client') || 'digicat';
     setUserId(`user_${Math.random().toString(36).substr(2, 9)}`);
 
-    if (!initialMessageSent.current) {
-      addMessageWithTypingEffect({
-        role: 'assistant',
-        content: "Olá! Meu nome é Cabelinho! Sou a atendente da Extension Hair. Como posso ajudar?"
-      });
-      initialMessageSent.current = true;
-    }
-  }, []);
+    // Fetch company and assistant information from the API
+    const fetchCompanyInfo = async () => {
+      try {
+        const response = await fetch(`http://localhost:5001/company-info?client=${clientParam}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`API response was not ok: ${response.status}`);
+        }
+
+        const info: CompanyInfo = await response.json();
+        setCompanyInfo(info);
+
+        if (!initialMessageSent.current) {
+          addMessageWithTypingEffect({
+            role: 'assistant',
+            content: `Olá! Meu nome é ${info.assistant.name}! Sou o atendente da ${info.name}. Como posso ajudar?`
+          });
+          initialMessageSent.current = true;
+        }
+      } catch (error) {
+        console.error('Error fetching company info:', error);
+        // Set default values in case of error
+        setCompanyInfo({
+          name: 'Nossa Empresa',
+          assistant: { name: 'Assistente', imageName: 'default.png' }
+        });
+      }
+    };
+
+    fetchCompanyInfo();
+  }, [searchParams]);
 
   const scrollToBottom = (smooth: boolean = true): void => {
     if (chatContainerRef.current) {
@@ -119,7 +160,7 @@ export default function OrcamentoPage(): JSX.Element {
     try {
       const clientParam = searchParams.get('client') || 'digicat';
 
-      const response = await fetch('https://api.digicat.com.br/chat', {
+      const response = await fetch('http://localhost:5001/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -139,19 +180,24 @@ export default function OrcamentoPage(): JSX.Element {
       addMessageWithTypingEffect({ role: 'assistant', content: data.reply });
     } catch (error) {
       console.error('Error:', error);
-      addMessageWithTypingEffect({ role: 'assistant', content: 'Desculpe, ocorreu um erro ao processar sua mensagem. Por favor, tente novamente.' });
+      addMessageWithTypingEffect({ 
+        role: 'assistant', 
+        content: 'Desculpe, ocorreu um erro ao processar sua mensagem. Por favor, tente novamente.' 
+      });
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleDownload = (): void => {
-    const conversationText = messages.map(msg => `${msg.role === 'user' ? 'Você' : 'Digiquinho'}: ${msg.content}`).join('\n\n');
+    const conversationText = messages
+      .map(msg => `${msg.role === 'user' ? 'Você' : companyInfo.assistant.name}: ${msg.content}`)
+      .join('\n\n');
     const blob = new Blob([conversationText], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'conversa-digiquinho.txt';
+    a.download = 'conversa.txt';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -161,7 +207,9 @@ export default function OrcamentoPage(): JSX.Element {
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-100 to-white flex flex-col pt-28 lg:pt-36">
       <Container className="flex-grow flex flex-col py-8">
-        <h1 className="text-4xl font-bold text-sky-900 mb-8 text-center">Bem-vindo à Extension Hair!</h1>
+        <h1 className="text-4xl font-bold text-sky-900 mb-8 text-center">
+          Bem-vindo à {companyInfo.name}!
+        </h1>
         <p className="text-sm text-gray-500 mb-8 text-center max-w-3xl mx-auto">
           Você será atendido por nossa inteligência artificial avançada, projetada para oferecer respostas rápidas e precisas.
           Um de nossos especialistas revisará a conversa em breve para garantir o melhor atendimento possível.
@@ -178,17 +226,20 @@ export default function OrcamentoPage(): JSX.Element {
                 className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`flex items-start space-x-4 max-w-[70%] ${message.role === 'user' ? 'flex-row-reverse space-x-reverse' : ''
-                    }`}
+                  className={`flex items-start space-x-4 max-w-[70%] ${
+                    message.role === 'user' ? 'flex-row-reverse space-x-reverse' : ''
+                  }`}
                 >
-                  <div className={`flex-shrink-0 rounded-full ${message.role === 'user' ? 'bg-sky-500' : 'bg-gray-200'} overflow-hidden w-[84px] h-[84px] flex items-center justify-center`}>
+                  <div className={`flex-shrink-0 rounded-full ${
+                    message.role === 'user' ? 'bg-sky-500' : 'bg-gray-200'
+                  } overflow-hidden w-[84px] h-[84px] flex items-center justify-center`}>
                     {message.role === 'user' ? (
                       <User size={60} className="text-white" />
                     ) : (
                       <div className="relative w-full h-full">
                         <Image
-                          src='/images/cabelinho.png'
-                          alt='digiquinho'
+                          src={`/images/${companyInfo.assistant.imageName}`}
+                          alt={companyInfo.assistant.name}
                           layout="fill"
                           objectFit="cover"
                         />
@@ -196,10 +247,11 @@ export default function OrcamentoPage(): JSX.Element {
                     )}
                   </div>
                   <div
-                    className={`rounded-2xl p-4 shadow-md ${message.role === 'user'
-                      ? 'bg-sky-500 text-white'
-                      : 'bg-gray-100 text-gray-800'
-                      }`}
+                    className={`rounded-2xl p-4 shadow-md ${
+                      message.role === 'user'
+                        ? 'bg-sky-500 text-white'
+                        : 'bg-gray-100 text-gray-800'
+                    }`}
                   >
                     {processText(message.content, message.role)}
                     {message.isTyping && (
@@ -244,4 +296,3 @@ export default function OrcamentoPage(): JSX.Element {
     </div>
   );
 }
-
