@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: 'Digicat',
     images: [
       {
-        url: '/ogimage/og-image.png', // EDIT: Adicionar imagem OG 1200x630px
+        url: '/og-image.png', // EDIT: Adicionar imagem OG 1200x630px
         width: 1200,
         height: 630,
         alt: 'Digicat - Soluções Digitais',
