@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
   }, [text, isDeleting, loopNum, services, typingSpeed]);
 
   return (
-    <div className="relative min-h-screen pt-28 overflow-hidden">
+    <div className="relative min-h-screen pt-28 md:pt-0 overflow-hidden">
       {/* Video Background with Enhanced Overlay */}
       <div className="absolute inset-0">
         <video
