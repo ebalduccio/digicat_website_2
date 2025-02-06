@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
 
 const Hero: React.FC = () => {
   const [text, setText] = useState<string>('');
@@ -56,7 +57,7 @@ const Hero: React.FC = () => {
   }, [text, isDeleting, loopNum, services, typingSpeed]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen pt-28 overflow-hidden">
       {/* Video Background with Enhanced Overlay */}
       <div className="absolute inset-0">
         <video
@@ -116,12 +117,12 @@ const Hero: React.FC = () => {
                 Acelere o{' '}
                 <span className="relative inline-block">
                   crescimento
-                  <motion.span
-                    className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-sky-400 to-blue-500"
+                  {/* <motion.span
+                    className="absolute hidden md:block -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-sky-400 to-blue-500"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ delay: 1, duration: 0.8 }}
-                  />
+                  /> */}
                 </span>
                 {' '}da sua empresa com...
               </motion.h1>
@@ -163,26 +164,29 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
             >
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-bold px-8 py-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-sky-500/25 group"
-              >
-                <span className="flex items-center gap-2">
-                  QUERO ACELERAR MEU NEGÓCIO
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Button>
-
-              <Button
-                size="lg"
-                variant="ghost"
-                className="text-white border border-white/20 hover:bg-white/10 font-medium px-8 py-6 rounded-xl group"
-              >
-                <span className="flex items-center gap-2">
-                  Conheça nosso trabalho
-                  <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
-                </span>
-              </Button>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-bold px-8 py-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-sky-500/25 group"
+                >
+                  <span className="flex items-center gap-2">
+                    QUERO ACELERAR MEU NEGÓCIO
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </span>
+                </Button>
+              </Link>
+              <Link href="/about">
+                <Button
+                  size="lg"
+                  variant="ghost"
+                  className="text-white border border-white/20 hover:bg-white/10 font-medium px-8 py-6 rounded-xl group"
+                >
+                  <span className="flex items-center gap-2">
+                    Conheça nosso trabalho
+                    <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
+                  </span>
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

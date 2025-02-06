@@ -117,15 +117,15 @@ const DigitalTransformation: React.FC = () => {
                             transition={{ delay: 0.3, duration: 0.5 }}
                         >
                             Perdendo clientes por falta de uma{' '}
-                            <span className="relative inline-block">
+                            <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">
                                 presença online forte?
-                                <motion.span
-                                    className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-sky-400 to-blue-500"
-                                    initial={{ scaleX: 0 }}
-                                    animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-                                    transition={{ delay: 0.5, duration: 0.5 }}
-                                />
                             </span>
+                            {/* <motion.span
+                                className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-sky-400 to-blue-500"
+                                initial={{ scaleX: 0 }}
+                                animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+                                transition={{ delay: 0.5, duration: 0.5 }}
+                            /> */}
                         </motion.h2>
 
                         <motion.p
