@@ -28,7 +28,7 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const whatsappNumber = "5571993020258";
+  const whatsappNumber = "5571992266505";
   const whatsappMessage = encodeURIComponent("Olá! Gostaria de saber mais sobre os seguintes serviços:");
 
   return (
