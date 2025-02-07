@@ -191,7 +191,7 @@ const Hero: React.FC = () => {
       </Container>
 
       {/* Scroll Indicator */}
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -204,7 +204,7 @@ const Hero: React.FC = () => {
         >
           <motion.div className="w-1 h-1.5 rounded-full bg-white/50" />
         </motion.div>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };
