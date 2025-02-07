@@ -34,7 +34,7 @@ const serviceItems = [
     },
     {
         label: 'Software Personalizado',
-        href: '/services/software',
+        href: '/services/software-development',
         icon: Settings,
         description: 'Deixe que o sistema cuide das tarefas entediantes e manuais, sua equipe se concentra em atividades estratégicas, o Software servirá como um um sistema que trabalha exatamente da forma que você precisa.',
         buttonText: 'QUERO MAIS PRODUTIVIDADE',
