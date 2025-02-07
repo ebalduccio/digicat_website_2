@@ -58,7 +58,6 @@ const Hero: React.FC = () => {
 
   return (
     <div className="relative min-h-screen pt-28 md:pt-0 overflow-hidden">
-      {/* Video Background with Enhanced Overlay */}
       <div className="absolute inset-0">
         <video
           className="absolute inset-0 w-full h-full object-cover scale-105"
@@ -73,7 +72,6 @@ const Hero: React.FC = () => {
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/90 to-sky-900/80" />
 
-        {/* Animated Grid Pattern */}
         <div
           className="absolute inset-0 opacity-30"
           style={{
@@ -175,7 +173,7 @@ const Hero: React.FC = () => {
                   </span>
                 </Button>
               </Link>
-              <Link href="/about">
+              <Link href="/about/team">
                 <Button
                   size="lg"
                   variant="ghost"
