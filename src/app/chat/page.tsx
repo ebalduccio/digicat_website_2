@@ -45,19 +45,49 @@ export default function OrcamentoPage(): JSX.Element {
 
   useEffect(scrollToBottom, [messages]);
 
-  const processText = (text: string): JSX.Element => {
-    const parts = text.split(/(\*\*.*?\*\*)/g);
-    return (
-      <>
-        {parts.map((part, index) => {
-          if (part.startsWith('**') && part.endsWith('**')) {
-            return <strong key={index}>{part.slice(2, -2)}</strong>;
-          }
-          return part;
-        })}
-      </>
-    );
+  // Função para remover tags HTML e converter para texto puro
+  const sanitizeHtml = (html: string): string => {
+    return html
+      // Remove scripts
+      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+      // Remove eventos on*
+      .replace(/\son\w+="[^"]*"/gi, '')
+      // Remove iframes
+      .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
+      // Remove comentários
+      .replace(/<!--[\s\S]*?-->/g, '')
+      // Converte algumas entidades HTML comuns
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      // Remove espaços extras
+      .replace(/\s+/g, ' ')
+      .trim();
   };
+
+  const processMessage = (content: string, isTyping: boolean): JSX.Element => {
+    if (isTyping) {
+      return (
+        <>
+          <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }} />
+          <span className="inline-block ml-1 animate-pulse">...</span>
+        </>
+      );
+    }
+    return <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }} />;
+  };
+
+  const ThinkingAnimation = () => (
+    <div className="flex items-center space-x-1 text-gray-400">
+      {/* <div className="text-sm">Pensando</div> */}
+      <div className="flex space-x-1">
+        <div className="w-2 h-2 bg-sky-500 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+        <div className="w-2 h-2 bg-sky-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+        <div className="w-2 h-2 bg-sky-500 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+      </div>
+    </div>
+  );
 
   const addMessageWithTypingEffect = (message: Message): void => {
     setIsAiTyping(true);
@@ -95,6 +125,8 @@ export default function OrcamentoPage(): JSX.Element {
     setInput('');
     setIsLoading(true);
 
+    setMessages(prev => [...prev, { role: 'assistant', content: '', isTyping: true }]);
+
     try {
       const clientParam = searchParams.get('client') || 'digicat';
       const response = await fetch('https://api.digicat.com.br/chat', {
@@ -109,9 +141,10 @@ export default function OrcamentoPage(): JSX.Element {
 
       if (!response.ok) throw new Error(`API response was not ok: ${response.status}`);
       const data: ApiResponse = await response.json();
+      setMessages(prev => prev.slice(0, -1));
       addMessageWithTypingEffect({ role: 'assistant', content: data.reply });
     } catch (error) {
-      console.error('Error:', error);
+      setMessages(prev => prev.slice(0, -1));
       addMessageWithTypingEffect({
         role: 'assistant',
         content: 'Desculpe, ocorreu um erro ao processar sua mensagem. Por favor, tente novamente.'
@@ -146,17 +179,15 @@ export default function OrcamentoPage(): JSX.Element {
           Você será atendido por nossa inteligência artificial avançada, projetada para oferecer respostas rápidas e precisas.
           Um de nossos especialistas revisará a conversa em breve para garantir o melhor atendimento possível.
         </p>
-        
+
         <div className="flex-grow bg-white rounded-lg sm:rounded-2xl shadow-lg sm:shadow-2xl overflow-hidden flex flex-col">
           <div className="flex-grow overflow-y-auto p-3 sm:p-4 lg:p-6 space-y-4 sm:space-y-6">
             {messages.map((message, index) => (
               <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`flex items-start space-x-2 sm:space-x-4 max-w-[85%] sm:max-w-[75%] ${
-                  message.role === 'user' ? 'flex-row-reverse space-x-reverse sm:space-x-reverse' : ''
-                }`}>
-                  <div className={`flex-shrink-0 rounded-full ${
-                    message.role === 'user' ? 'bg-sky-500' : 'bg-gray-200'
-                  } overflow-hidden w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex items-center justify-center`}>
+                <div className={`flex items-start space-x-2 sm:space-x-4 max-w-[85%] sm:max-w-[75%] ${message.role === 'user' ? 'flex-row-reverse space-x-reverse sm:space-x-reverse' : ''
+                  }`}>
+                  <div className={`flex-shrink-0 rounded-full ${message.role === 'user' ? 'bg-sky-500' : 'bg-gray-200'
+                    } overflow-hidden w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex items-center justify-center`}>
                     {message.role === 'user' ? (
                       <User className="w-6 h-6 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white" />
                     ) : (
@@ -170,15 +201,16 @@ export default function OrcamentoPage(): JSX.Element {
                       </div>
                     )}
                   </div>
-                  <div className={`rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-md ${
-                    message.role === 'user'
-                      ? 'bg-sky-500 text-white'
-                      : 'bg-gray-100 text-gray-800'
-                  }`}>
-                    <div className="text-sm sm:text-base">
-                      {processText(message.content)}
-                      {message.isTyping && (
-                        <span className="inline-block ml-1 animate-pulse">...</span>
+                  <div className={`rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-md ${message.role === 'user'
+                    ? 'bg-sky-500 text-white'
+                    : 'bg-gray-100 text-gray-800'
+                    }`}>
+                    <div className="text-sm sm:text-base [&>h1]:text-xl [&>h1]:font-bold [&>h1]:mb-2 
+  [&>ul]:pl-4 [&>ul>li]:mb-1 [&>p]:mb-2 prose-strong:font-bold">
+                      {message.isTyping && !message.content ? (
+                        <ThinkingAnimation />
+                      ) : (
+                        processMessage(message.content, !!message.isTyping)
                       )}
                     </div>
                   </div>
@@ -187,7 +219,7 @@ export default function OrcamentoPage(): JSX.Element {
             ))}
             <div ref={messagesEndRef} />
           </div>
-          
+
           <form onSubmit={handleSend} className="border-t p-2 sm:p-4 bg-gray-50">
             <div className="max-w-4xl mx-auto flex items-center space-x-2 sm:space-x-4">
               <div className="flex-grow relative">
