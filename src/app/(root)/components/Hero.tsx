@@ -107,7 +107,7 @@ const Hero: React.FC = () => {
             {/* Main Heading */}
             <div className="space-y-4">
               <motion.h1
-                className="text-6xl font-bold leading-[1.2] text-white"
+                className="text-5xl font-bold leading-[1.2] text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
